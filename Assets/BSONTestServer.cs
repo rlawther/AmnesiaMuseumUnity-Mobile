@@ -22,14 +22,16 @@ public class BSONTestServer : MonoBehaviour {
 
 		while (bo != null)
 		{
+			/*
 			foreach (string k in bo.Keys)
 			{
 				Debug.Log (k + "," + bo[k] + ",\n");
 			}
+			*/
 
-			if (bo.ContainsKey("touch"))
+			if (bo.ContainsKey("button"))
 			{
-				if (string.Equals (bo["touch"], "artistic"))
+				if (string.Equals (bo["button"], "artistic"))
 					Debug.Log ("ARTISTIC\n");
 				else
 					Debug.Log ("not ARTISTIC\n");
