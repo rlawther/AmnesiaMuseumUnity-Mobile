@@ -7,6 +7,7 @@ using Kernys.Bson;
 public class BSONTestServer : MonoBehaviour {
 
 	BSONListener bl;
+	public FPSInputController ic;
 	// Use this for initialization
 	void Start () {
 	
@@ -17,6 +18,8 @@ public class BSONTestServer : MonoBehaviour {
 	void Update () {
 	
 		BSONObject bo;
+		//ic.directionVector.x = 1.0f;
+		//Debug.Log ("set dir");
 
 		bo = bl.Receive();
 
@@ -25,10 +28,20 @@ public class BSONTestServer : MonoBehaviour {
 			/*
 			foreach (string k in bo.Keys)
 			{
+
 				Debug.Log (k + "," + bo[k] + ",\n");
 			}
 			*/
 
+
+			if (bo.ContainsKey("x"))
+			{
+				ic.directionVector.x = bo["x"];
+			}
+			if (bo.ContainsKey("y"))
+			{
+				ic.directionVector.z = bo["y"];
+			}
 			if (bo.ContainsKey("button"))
 			{
 				if (string.Equals (bo["button"], "artistic"))
