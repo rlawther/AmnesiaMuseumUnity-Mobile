@@ -33,7 +33,8 @@ public class TCPAsyncListener : ThreadedClass {
 	public TCPAsyncListener(int port)
 	{
 		listenPort = port;
-		
+		Debug.Log("Starting listener on port " + port);
+			
 		this.tcpListener = new TcpListener(IPAddress.Any, listenPort);	
         this.tcpListener.Start();
         Debug.Log("Started listener on port " + port);

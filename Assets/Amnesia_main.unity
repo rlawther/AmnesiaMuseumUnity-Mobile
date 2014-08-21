@@ -2035,6 +2035,7 @@ GameObject:
   - 114: {fileID: 1115516433}
   - 114: {fileID: 1115516434}
   - 114: {fileID: 1115516435}
+  - 114: {fileID: 1115516436}
   m_Layer: 0
   m_Name: First Person Controller
   m_TagString: Untagged
@@ -2054,6 +2055,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60bca8f58a0b8478e946e6e86658cb29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  directionVector: {x: 0, y: 0, z: 0}
 --- !u!114 &1115516427
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2229,6 +2231,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0745469c9e91294986210c5ff676b1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1115516436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1115516425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c281ac42272e6445b7054eef58b345f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ic: {fileID: 1115516426}
+  yAxisTurn: 0
 --- !u!1 &1123191993
 GameObject:
   m_ObjectHideFlags: 0
