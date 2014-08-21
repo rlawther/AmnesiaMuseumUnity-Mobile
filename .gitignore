@@ -1,10 +1,26 @@
-Assets/DATA
+#Assets/DATA/G1_img_sml
+#Assets/DATA/G1_img_sml.meta
+#Assets/DATA/G2_img_sml
+#Assets/DATA/G2_img_sml.meta
+#Assets/DATA/Skybox
+#Assets/DATA/Skybox.meta
+#Assets/DATA/Meshes/*.*
+#Assets/DATA/Meshes/*/*.jpg
+#Assets/DATA/Meshes/*/*.jpg.meta
+#Assets/DATA/Meshes/*/*.png
+#Assets/DATA/Meshes/*/*.png.meta
+#Assets/DATA/Meshes/*/*.mtl
+#Assets/DATA/Meshes/*/*.mtl.meta
+#Assets/DATA/Meshes/*/*.obj
+#Assets/DATA/Meshes/*/*.obj.meta
 
 # =============== #
 # Unity generated #
 # =============== #
 Temp/
 Library/
+AmnesiaMuseumUnity.exe
+AmnesiaMuseumUnity_Data
  
 # ===================================== #
 # Visual Studio / MonoDevelop generated #
@@ -33,5 +49,3 @@ ehthumbs.db
 Thumbs.db
 *.swp
 *~
-AmnesiaMuseumUnity.exe
-AmnesiaMuseumUnity_Data

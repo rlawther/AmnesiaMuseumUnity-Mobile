@@ -7,9 +7,9 @@ public class LoadLevels : MonoBehaviour {
 	void Start () {
 	
 		Debug.Log ("Loading Artistic");
-		Application.LoadLevelAdditive("ArtisticScene");
-		Debug.Log ("Loading Browser");
-		//Application.LoadLevelAdditive("BrowserScene");
+		//Application.LoadLevelAdditive("ArtisticScene");
+		//Debug.Log ("Loading Browser");
+		Application.LoadLevelAdditive("BrowserScene");
 		
 	}
 	
