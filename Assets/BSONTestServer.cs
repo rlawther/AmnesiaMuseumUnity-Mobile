@@ -37,14 +37,14 @@ public class BSONTestServer : MonoBehaviour {
 
 			if (bo.ContainsKey("x"))
 			{
-				ic.directionVector.x = bo["x"];
+				ic.networkDirectionVector.x = bo["x"];
 			}
 			if (bo.ContainsKey("y"))
 			{
 				if (yAxisTurn)
 					transform.Rotate(0, bo["y"] * 15.0f, 0);
 				else
-					ic.directionVector.z = bo["y"];
+					ic.networkDirectionVector.z = bo["y"];
 			}
 			if (bo.ContainsKey("button"))
 			{
