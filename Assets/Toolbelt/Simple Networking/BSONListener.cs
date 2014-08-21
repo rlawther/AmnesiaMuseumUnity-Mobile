@@ -48,7 +48,6 @@ public class BSONListener {
 	{
         if (mTcpListener.GetMessageCount() == 0)
         {
-			Debug.Log("no messages");
             return null;
         }
         else

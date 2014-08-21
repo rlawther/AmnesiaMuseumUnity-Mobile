@@ -14,22 +14,25 @@ public class Events
 	// Update is called once per frame
 	void Update () {
 	
-		if (Input.GetKey("9"))
+		if (Input.GetKey("o"))
 		{
 			if (!mArtisticMode)
 			{
 				Debug.Log ("Into artisitc");
 				mArtisticMode = true;
-				Application.LoadLevel(0);
+				LoadLevels.artisticSceneParent.SetActive(true);
+				LoadLevels.browserSceneParent.SetActive(false);
 			}
 		}
-		else if (Input.GetKey("0"))
+		else if (Input.GetKey("p"))
 		{
 			if (mArtisticMode)
 			{
-				Debug.Log ("Into browser");
+				Debug.Log ("Into browser" + LoadLevels.artisticSceneParent);
 				mArtisticMode = false;
-				Application.LoadLevel(1);
+				
+				LoadLevels.artisticSceneParent.SetActive(false);
+				LoadLevels.browserSceneParent.SetActive(true);
 			}
 		}
 	}
