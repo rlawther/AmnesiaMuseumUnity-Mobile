@@ -12,10 +12,10 @@ SceneSettings:
     backfaceThreshold: 100
 --- !u!104 &2
 RenderSettings:
-  m_Fog: 0
-  m_FogColor: {r: .536764741, g: .536764741, b: .536764741, a: 1}
+  m_Fog: 1
+  m_FogColor: {r: 1, g: 0, b: 0, a: 1}
   m_FogMode: 3
-  m_FogDensity: 9.99999975e-05
+  m_FogDensity: .00200000009
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientLight: {r: .0882353187, g: .0882353187, b: .0882353187, a: 1}
@@ -729,6 +729,9 @@ MonoBehaviour:
   datasets:
   - csvMetadataFile: Assets/CSV/g1_combined.csv
     imageDirectory: Assets/DATA/G1_img_sml
+    imageExtension: 
+  - csvMetadataFile: Assets/CSV/g2_combined.csv
+    imageDirectory: Assets/DATA/G2_img_sml
     imageExtension: 
   visualizations: []
   quadTemplate: {fileID: 1352131302}

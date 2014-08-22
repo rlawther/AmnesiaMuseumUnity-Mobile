@@ -92,7 +92,8 @@ public class AutographerParser : MetadataParser {
 					dataItem.filename = row[columns.IndexOf("imgFile")];
 					dataItem.heading = float.Parse(row[columns.IndexOf("heading")]);
 					dataItem.priority = int.Parse(row[columns.IndexOf("priority")]);
-
+					dataItem.episode = int.Parse(row[columns.IndexOf("episode")]);
+					
 					/*
 					 * These fiels not used and not always present in CSV file ...
 					dataItem.AccuracyX = float.Parse(row[columns.IndexOf("accx")]);

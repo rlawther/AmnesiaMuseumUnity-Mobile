@@ -112,6 +112,22 @@ public class Visualization : MonoBehaviour {
 			this.targetMetadataParser.output.Remove (mdi);
 		}
 	}
+	
+	protected Transform getChildForEpisode(int episode)
+	{
+		foreach (Transform child in this.transform)
+		{
+			if (child.name == String.Format("Episode{0}", episode))
+				return child;
+		}
+		
+		/* If it doesn't exist, create it */
+		GameObject go = new GameObject();
+		go.transform.name = String.Format("Episode{0}", episode);
+		go.transform.parent = this.transform;
+		return go.transform;
+		
+	}
 
 	protected void createQuadsGPS() {
 			//Shader transDiff = Shader.Find ("Transparent/Diffuse");
@@ -131,7 +147,7 @@ public class Visualization : MonoBehaviour {
 			}
 			*/
 
-			q.transform.parent = this.transform;
+			q.transform.parent = getChildForEpisode(mdi.episode);
 			// make them big enough to see easily
 			q.transform.localScale = new Vector3(5.0f * 1.33f, 5.0f, 5.0f);
 			/*
@@ -142,6 +158,8 @@ public class Visualization : MonoBehaviour {
 			q.renderer.sharedMaterial = quadTemplate.renderer.material;
 			quadTemplate.renderer.material.color = Color.red;
 			*/
+			
+			
 
 			
 			mdi.transform = q.transform;

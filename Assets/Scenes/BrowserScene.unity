@@ -4270,6 +4270,9 @@ MonoBehaviour:
   - csvMetadataFile: Assets/CSV/g1_combined.csv
     imageDirectory: Assets/DATA/G1_img_sml
     imageExtension: 
+  - csvMetadataFile: Assets/CSV/g2_combined.csv
+    imageDirectory: Assets/DATA/G2_img_sml
+    imageExtension: 
   visualizations: []
   quadTemplate: {fileID: 1352131302}
   currentlySelectedVis: 0
