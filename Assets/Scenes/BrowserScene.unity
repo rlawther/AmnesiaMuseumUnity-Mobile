@@ -4673,6 +4673,7 @@ GameObject:
   - 114: {fileID: 2108953011}
   - 114: {fileID: 2108953010}
   - 114: {fileID: 2108953009}
+  - 114: {fileID: 2108953015}
   m_Layer: 0
   m_Name: Scripts
   m_TagString: Untagged
@@ -4789,6 +4790,18 @@ MonoBehaviour:
   visualizations: []
   currentlySelectedVis: 0
   lineMaterial: {fileID: 2100000, guid: ed7a07c7e00e24e258ff18b53637dad7, type: 2}
+--- !u!114 &2108953015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2108953007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b590e962b708dae47bcc12987cdd6ce6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  billboardRadius: 100
 --- !u!1 &2133811013
 GameObject:
   m_ObjectHideFlags: 0
