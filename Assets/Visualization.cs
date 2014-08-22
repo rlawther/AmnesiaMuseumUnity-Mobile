@@ -36,12 +36,13 @@ public class Visualization : MonoBehaviour {
 	public string csvMetadataFile;
 	public string imageDirectory;
 	public string imageExtension;
+	public GameObject [] quadTemplates;
 	//public ToolbeltManager tb;
 	public MetadataParser targetMetadataParser;
 	
 	public string rootDir;
 	public Mesh DoubleSidedMesh;
-	public GameObject quadTemplate;
+	//public GameObject quadTemplate;
 	public Transform[] quadList;
 	// Use this for initialization
 	private const double m_per_deg_lat = 111132.954f;
@@ -136,7 +137,7 @@ public class Visualization : MonoBehaviour {
 		foreach (MetaDataItem mdi in this.targetMetadataParser.output) {
 			/* Create a new quad for the image */
 			GameObject q;
-			q = (GameObject)Instantiate(quadTemplate);
+			q = (GameObject)Instantiate(quadTemplates[mdi.episode]);
 			q.SetActive(true);
 			StartCoroutine(WaitForTexture(q,mdi));
 			mdi.material = q.renderer.material;
@@ -149,7 +150,7 @@ public class Visualization : MonoBehaviour {
 
 			q.transform.parent = getChildForEpisode(mdi.episode);
 			// make them big enough to see easily
-			q.transform.localScale = new Vector3(5.0f * 1.33f, 5.0f, 5.0f);
+			//q.transform.localScale = new Vector3(5.0f * 1.33f, 5.0f, 5.0f);
 			/*
 			 * This is just used so you can see the position of the quads more easily
 			 * for debugging etc.
@@ -158,9 +159,6 @@ public class Visualization : MonoBehaviour {
 			q.renderer.sharedMaterial = quadTemplate.renderer.material;
 			quadTemplate.renderer.material.color = Color.red;
 			*/
-			
-			
-
 			
 			mdi.transform = q.transform;
 			quadList[i] = q.transform;
@@ -180,11 +178,11 @@ public class Visualization : MonoBehaviour {
 		int i = 0;
 		foreach (MetaDataItem mdi in this.targetMetadataParser.output) {
 			/* Create a new quad for the image */
-			GameObject q = (GameObject)Instantiate(quadTemplate);
+			GameObject q = (GameObject)Instantiate(quadTemplates[mdi.episode]);
 			q.SetActive(true);
 			
 			q.transform.parent = this.transform;
-			q.transform.localScale = new Vector3(1.33f, 1, 1);
+			//q.transform.localScale = new Vector3(1.33f, 1, 1);
 			
 			StartCoroutine(WaitForTexture(q,mdi));
 			
@@ -234,7 +232,7 @@ public class Visualization : MonoBehaviour {
 			pos.x *= -1;
 
 			/* allow us to alter the ypos by setting it on the template quad */
-			pos.y += quadTemplate.transform.position.y;
+			pos.y += quadTemplates[mdi.episode].transform.position.y;
 
 			q.localPosition = pos;
 			q.localRotation = Quaternion.Euler(0, mdi.heading + 90, 0);

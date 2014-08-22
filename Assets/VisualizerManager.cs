@@ -13,6 +13,7 @@ public class VisualizerManager : MonoBehaviour {
 		public string csvMetadataFile;
 		public string imageDirectory;
 		public string imageExtension;
+		public GameObject[] quadTemplates;
 	}
 
 	public bool tvisLayout = false;
@@ -25,7 +26,7 @@ public class VisualizerManager : MonoBehaviour {
 	public Visualization[] visualizations;
 	
 	//public Mesh DoubleSidedMesh;
-	public GameObject quadTemplate;
+	//public GameObject quadTemplate;
 	//public LockToPath pather;
 	public int currentlySelectedVis = 0;
 	
@@ -58,7 +59,7 @@ public class VisualizerManager : MonoBehaviour {
 		//string folderName = new DirectoryInfo(rootFolder).Name;
 		Visualization v = go.AddComponent<Visualization>();		
 		go.name = dataset.csvMetadataFile;			
-		go.transform.parent = quadTemplate.transform.parent;	
+		go.transform.parent = dataset.quadTemplates[0].transform.parent;	
 		AutographerParser parser = go.AddComponent<AutographerParser>();
 		//parser.allowInterp = this.GetComponent<AutographerParser>().allowInterp;
 		//parser.imageResolution = this.GetComponent<AutographerParser>().imageResolution;		
@@ -71,7 +72,8 @@ public class VisualizerManager : MonoBehaviour {
 		v.targetMetadataParser = v.GetComponent<MetadataParser>();
 		//v.pather = this.pather;
 		//v.DoubleSidedMesh = this.DoubleSidedMesh;
-		v.quadTemplate = this.quadTemplate;
+		//v.quadTemplate = this.quadTemplate;
+		v.quadTemplates = dataset.quadTemplates;
 		v.tvisLayout = this.tvisLayout;
 		//v.transform.parent = this.sceneParent;
 		return v;
