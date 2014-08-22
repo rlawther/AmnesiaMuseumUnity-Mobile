@@ -57,7 +57,8 @@ public class VisualizerManager : MonoBehaviour {
 		GameObject go = new GameObject();
 		//string folderName = new DirectoryInfo(rootFolder).Name;
 		Visualization v = go.AddComponent<Visualization>();		
-		go.name = dataset.csvMetadataFile;				
+		go.name = dataset.csvMetadataFile;			
+		go.transform.parent = quadTemplate.transform.parent;	
 		AutographerParser parser = go.AddComponent<AutographerParser>();
 		//parser.allowInterp = this.GetComponent<AutographerParser>().allowInterp;
 		//parser.imageResolution = this.GetComponent<AutographerParser>().imageResolution;		

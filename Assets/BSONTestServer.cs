@@ -12,7 +12,7 @@ public class BSONTestServer : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 	
-		bl = new BSONListener(5556);
+		bl = new BSONListener(5558);
 	}
 	
 	// Update is called once per frame

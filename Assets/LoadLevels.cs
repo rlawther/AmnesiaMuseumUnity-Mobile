@@ -17,12 +17,22 @@ public class LoadLevels : MonoBehaviour {
 		Debug.Log ("Loading Browser");
 		Application.LoadLevelAdditive("BrowserScene");
 		
+		/*
+		while (Application.isLoadingLevel)
+		{
+		}
+		*/
+		
+		Debug.Log ("Done loading");
+		
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if ((!init) && (Time.time > 5))
+		if ((!init) && (!Application.isLoadingLevel))
 		{
+			GameObject go;
+			
 			Debug.Log (artisticSceneParent);
 			//artisticSceneParent = GameObject.Find("ArtisticSceneParent");
 			artisticSceneParent = GameObject.Find("ArtisticSceneParent");
