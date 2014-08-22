@@ -728,6 +728,7 @@ GameObject:
   - 114: {fileID: 291379399}
   - 114: {fileID: 291379397}
   - 114: {fileID: 291379396}
+  - 114: {fileID: 291379398}
   m_Layer: 0
   m_Name: Scripts
   m_TagString: Untagged
@@ -773,6 +774,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fpc: {fileID: 1115516425}
   baseScripts: {fileID: 1608910739}
+--- !u!114 &291379398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 291379394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b590e962b708dae47bcc12987cdd6ce6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  billboardRadius: 50
 --- !u!114 &291379399
 MonoBehaviour:
   m_ObjectHideFlags: 0
