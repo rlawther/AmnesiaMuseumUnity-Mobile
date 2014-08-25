@@ -786,6 +786,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   billboardRadius: 50
+  fadeCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: .00663716812
+      value: .196498156
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: .24999997
+      value: 1.0019455
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: .252212375
+      value: 1.00194538
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: .741150439
+      value: .0933851972
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: .984513283
+      value: .103112832
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  fadeDistanceMultiplier: 100
 --- !u!114 &291379399
 MonoBehaviour:
   m_ObjectHideFlags: 0

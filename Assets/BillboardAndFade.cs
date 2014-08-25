@@ -4,6 +4,8 @@ using System.Collections;
 public class BillboardAndFade : MonoBehaviour {
 
 	public float billboardRadius;
+	public AnimationCurve fadeCurve;
+	public float fadeDistanceMultiplier;
 
 	private VisualizerManager visManager;
 	private GameObject player;
@@ -32,7 +34,8 @@ public class BillboardAndFade : MonoBehaviour {
 				
 				var distance = Vector3.Distance (imageItem.transform.position, player.transform.position);
 				//var opacity = distance / divider - offset;
-				imageItem.material.color = new Color (1.0f, 1.0f, 1.0f, 0.5f);
+				imageItem.material.color = 
+				  new Color (1.0f, 1.0f, 1.0f, fadeCurve.Evaluate(distance / fadeDistanceMultiplier));
 				
 				if (distance < billboardRadius)
 				{

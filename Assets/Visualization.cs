@@ -232,7 +232,7 @@ public class Visualization : MonoBehaviour {
 			pos.x *= -1;
 
 			/* allow us to alter the ypos by setting it on the template quad */
-			pos.y += quadTemplates[mdi.episode]AndFade.transform.position.y;
+			pos.y += quadTemplates[mdi.episode].transform.position.y;
 
 			q.localPosition = pos;
 			q.localRotation = Quaternion.Euler(0, mdi.heading + 90, 0);
