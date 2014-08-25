@@ -800,7 +800,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b590e962b708dae47bcc12987cdd6ce6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  applyBillboard: 0
   billboardRadius: 50
+  applyFade: 0
+  fadeCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: .00663716812
+      value: .196498156
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: .24999997
+      value: 1.0019455
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: .252212375
+      value: 1.00194538
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: .741150439
+      value: .0933851972
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: .984513283
+      value: .103112832
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  fadeDistanceMultiplier: 100
 --- !u!114 &291379399
 MonoBehaviour:
   m_ObjectHideFlags: 0

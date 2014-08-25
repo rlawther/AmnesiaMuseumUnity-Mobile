@@ -4894,7 +4894,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b590e962b708dae47bcc12987cdd6ce6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  billboardRadius: 100
+  applyBillboard: 1
+  billboardRadius: 50
+  applyFade: 1
+  fadeCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: .00194552506
+      inSlope: 7.50402069
+      outSlope: 7.50402069
+      tangentMode: 10
+    - time: .132743359
+      value: .998054385
+      inSlope: 1.68663073
+      outSlope: 1.68663073
+      tangentMode: 10
+    - time: .300884962
+      value: .303501904
+      inSlope: -4.13075924
+      outSlope: -4.13075924
+      tangentMode: 10
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  fadeDistanceMultiplier: 100
 --- !u!1 &2133811013
 GameObject:
   m_ObjectHideFlags: 0

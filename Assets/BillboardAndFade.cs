@@ -3,7 +3,11 @@ using System.Collections;
 
 public class BillboardAndFade : MonoBehaviour {
 
+	public bool applyBillboard;
 	public float billboardRadius;
+	public bool applyFade;
+	public AnimationCurve fadeCurve;
+	public float fadeDistanceMultiplier;
 
 	private VisualizerManager visManager;
 	private GameObject player;
@@ -32,12 +36,20 @@ public class BillboardAndFade : MonoBehaviour {
 				
 				var distance = Vector3.Distance (imageItem.transform.position, player.transform.position);
 				//var opacity = distance / divider - offset;
-				imageItem.material.color = new Color (1.0f, 1.0f, 1.0f, 0.5f);
-				
-				if (distance < billboardRadius)
+				if (applyFade)
 				{
-					imageItem.transform.LookAt(player.transform.position);
-					//Debug.Log ("billboard");
+					imageItem.material.color = 
+					  new Color (1.0f, 1.0f, 1.0f, fadeCurve.Evaluate(distance / fadeDistanceMultiplier));
+				}
+				if (applyBillboard)
+				{
+					if (distance < billboardRadius)
+					{
+						imageItem.transform.LookAt(new Vector3(player.transform.position.x,
+						                                       imageItem.transform.position.y,
+						                                       player.transform.position.z));
+						//Debug.Log ("billboard");
+					}
 				}
 			}
 		}
