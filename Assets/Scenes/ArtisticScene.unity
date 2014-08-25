@@ -785,7 +785,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b590e962b708dae47bcc12987cdd6ce6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  applyBillboard: 0
   billboardRadius: 50
+  applyFade: 0
   fadeCurve:
     serializedVersion: 2
     m_Curve:
