@@ -39,13 +39,17 @@ public class VisualizerManager : MonoBehaviour {
 
 	protected void Start() {
 		//this.visOps = this.GetComponent<VisOptions>();
+		GameObject photoParent = new GameObject();
+		photoParent.name = "Photos";
+		photoParent.transform.parent = datasets[0].quadTemplates[0].transform.parent;
+		
 		this.visualizations = new Visualization[datasets.Length];
 		for (int i = 0; i < datasets.Length; i++) {
 			var dataset = datasets[i];
 			dataset.imageDirectory = Path.GetFullPath(dataset.imageDirectory);
 			dataset.csvMetadataFile = Path.GetFullPath(dataset.csvMetadataFile);
 
-			Visualization v = this.createVisualization(datasets[i]);
+			Visualization v = this.createVisualization(datasets[i], photoParent.transform);
 			visualizations[i] = v;
 		}
 		//visOps.SetVisualizations(this.visualizations);
@@ -54,12 +58,14 @@ public class VisualizerManager : MonoBehaviour {
 		}
 	}
 	
-	protected Visualization createVisualization(Dataset dataset) { 
+	protected Visualization createVisualization(Dataset dataset, Transform parent) { 
+		
 		GameObject go = new GameObject();
 		//string folderName = new DirectoryInfo(rootFolder).Name;
 		Visualization v = go.AddComponent<Visualization>();		
 		go.name = dataset.csvMetadataFile;			
-		go.transform.parent = dataset.quadTemplates[0].transform.parent;	
+		go.transform.parent = parent;	
+		
 		AutographerParser parser = go.AddComponent<AutographerParser>();
 		//parser.allowInterp = this.GetComponent<AutographerParser>().allowInterp;
 		//parser.imageResolution = this.GetComponent<AutographerParser>().imageResolution;		

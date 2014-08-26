@@ -13,6 +13,7 @@
 #Assets/DATA/Meshes/*/*.mtl.meta
 #Assets/DATA/Meshes/*/*.obj
 #Assets/DATA/Meshes/*/*.obj.meta
+Assets/DATA
 
 # =============== #
 # Unity generated #
