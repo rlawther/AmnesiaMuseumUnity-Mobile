@@ -9,10 +9,11 @@ public class BSONTestServer : MonoBehaviour {
 	BSONListener bl;
 	public FPSInputController ic;
 	public bool yAxisTurn;
+	public GameObject firstPersonController;
 	// Use this for initialization
 	void Start () {
 	
-		bl = new BSONListener(5558);
+		bl = new BSONListener(5559);
 	}
 	
 	// Update is called once per frame
@@ -35,16 +36,16 @@ public class BSONTestServer : MonoBehaviour {
 			*/
 
 
-			if (bo.ContainsKey("x"))
-			{
-				ic.networkDirectionVector.x = bo["x"];
-			}
 			if (bo.ContainsKey("y"))
 			{
+				ic.networkDirectionVector.z = bo["y"];
+			}
+			if (bo.ContainsKey("x"))
+			{
 				if (yAxisTurn)
-					transform.Rotate(0, bo["y"] * 15.0f, 0);
+					firstPersonController.transform.Rotate(0, bo["x"] * 1.0f, 0);
 				else
-					ic.networkDirectionVector.z = bo["y"];
+					ic.networkDirectionVector.x = bo["x"];
 			}
 			if (bo.ContainsKey("button"))
 			{

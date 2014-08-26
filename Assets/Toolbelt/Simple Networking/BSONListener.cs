@@ -63,18 +63,18 @@ public class BSONListener {
 
 				if (!mPartwayThroughMessage)
 				{
-					Debug.Log("get message");
 					mMsgOffset = 0;	
 					mMsg = mTcpListener.GetMessage();
 				}
 
+				//Debug.Log ("Got message");
 				a = mMsg[mMsgOffset];
 				b = getInt(mMsg, mMsgOffset + 1);
         	    //c = getInt(msg, 5);
 
 	            if ((a & HEADER_BIT_COMPRESS) != 0)
     	        {
-        	        Debug.Log("Compressed " + b);
+        	        //Debug.Log("Compressed " + b);
             	    compressedData = new byte [b - 4];
 					Array.Copy(mMsg, mMsgOffset + 9, compressedData, 0, b - 4);
     	            uncompressedData = ZlibStream.UncompressBuffer(compressedData);

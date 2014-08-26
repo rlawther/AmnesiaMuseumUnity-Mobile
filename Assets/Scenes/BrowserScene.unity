@@ -927,13 +927,14 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 560521051}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5c281ac42272e6445b7054eef58b345f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ic: {fileID: 1115516426}
-  yAxisTurn: 0
+  yAxisTurn: 1
+  firstPersonController: {fileID: 1115516425}
 --- !u!1 &596426408
 GameObject:
   m_ObjectHideFlags: 0
