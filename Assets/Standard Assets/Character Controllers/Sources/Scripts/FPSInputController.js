@@ -9,6 +9,7 @@ function Awake () {
 
 // Update is called once per frame
 function Update () {
+	var directionVector : Vector3;
 	// Get the input vector from keyboard or analog stick
 	var inputDirectionVector = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
 	//var directionVector = new Vector3(1.0f, 1.0f, 0);

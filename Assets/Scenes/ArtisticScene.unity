@@ -816,7 +816,7 @@ MonoBehaviour:
   tvisLayout: 0
   datasets:
   - csvMetadataFile: Assets/CSV/g1_combined_subset.csv
-    imageDirectory: Assets/DATA/G1_img_sml
+    imageDirectory: D:/Media/AmnesiaMuseum/G1_img_sml
     imageExtension: 
     quadTemplates:
     - {fileID: 756495611}
@@ -824,7 +824,7 @@ MonoBehaviour:
     - {fileID: 378943865}
     - {fileID: 1383771421}
   - csvMetadataFile: Assets/CSV/g2_combined_subset.csv
-    imageDirectory: Assets/DATA/G2_img_sml
+    imageDirectory: D:/Media/AmnesiaMuseum/G2_img_sml
     imageExtension: 
     quadTemplates:
     - {fileID: 803741280}
@@ -832,6 +832,7 @@ MonoBehaviour:
     - {fileID: 1722547601}
     - {fileID: 1003242766}
     - {fileID: 285441267}
+  usePhotos: 1
   visualizations: []
   currentlySelectedVis: 0
   lineMaterial: {fileID: 2100000, guid: ed7a07c7e00e24e258ff18b53637dad7, type: 2}
@@ -905,7 +906,7 @@ Prefab:
     - target: {fileID: 2300000, guid: f7cee25c8f93f40368e32f93fb89f84e, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: b2d7f3f014dfc4fc1948eed37dbdd3d1, type: 2}
+      objectReference: {fileID: 2100000, guid: 2e621be2b6d652c4287b906efac894cc, type: 2}
     - target: {fileID: 100002, guid: f7cee25c8f93f40368e32f93fb89f84e, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
@@ -1715,7 +1716,7 @@ Prefab:
     - target: {fileID: 2300000, guid: 9e8daccf50fc84399b34b479752dd1b6, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 157ca4a7f11d440a69382e1cf414216d, type: 2}
+      objectReference: {fileID: 2100000, guid: 2e621be2b6d652c4287b906efac894cc, type: 2}
     - target: {fileID: 100002, guid: 9e8daccf50fc84399b34b479752dd1b6, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
@@ -3730,7 +3731,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: 157ca4a7f11d440a69382e1cf414216d, type: 2}
+  - {fileID: 2100000, guid: 2e621be2b6d652c4287b906efac894cc, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -4679,7 +4680,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: b2d7f3f014dfc4fc1948eed37dbdd3d1, type: 2}
+  - {fileID: 2100000, guid: 2e621be2b6d652c4287b906efac894cc, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0

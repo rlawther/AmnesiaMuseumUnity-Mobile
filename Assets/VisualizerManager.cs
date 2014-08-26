@@ -19,6 +19,7 @@ public class VisualizerManager : MonoBehaviour {
 	public bool tvisLayout = false;
 
 	public Dataset[] datasets;
+	public bool usePhotos;
 	private string rootDir;
 	//public string[] rootFolders;
 
@@ -81,6 +82,7 @@ public class VisualizerManager : MonoBehaviour {
 		//v.quadTemplate = this.quadTemplate;
 		v.quadTemplates = dataset.quadTemplates;
 		v.tvisLayout = this.tvisLayout;
+		v.usePhotos = this.usePhotos;
 		//v.transform.parent = this.sceneParent;
 		return v;
 	}

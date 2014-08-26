@@ -13,6 +13,7 @@ public class Visualization : MonoBehaviour {
 	private Vector3 _rotateAll = new Vector3(0f,0f,0f);
 	public Vector3 rotateMult = new Vector3(1f,1f,1f);
 	public bool canUpdateLive = false;
+	public bool usePhotos;
 	
 	public float quadScale = 1f;
 	private float _quadScale = 1f;
@@ -20,6 +21,8 @@ public class Visualization : MonoBehaviour {
 	private float latitudeOrigin = -33.980f;
 	private float longitudeOrigin = 151.230f;
 	private float altitudeOrigin = 30.0f;
+	
+	
 
 	
 	public enum RotationMethod
@@ -139,7 +142,10 @@ public class Visualization : MonoBehaviour {
 			GameObject q;
 			q = (GameObject)Instantiate(quadTemplates[mdi.episode]);
 			q.SetActive(true);
-			StartCoroutine(WaitForTexture(q,mdi));
+			if (usePhotos)
+			{
+				StartCoroutine(WaitForTexture(q,mdi));
+			}
 			mdi.material = q.renderer.material;
 			/*
 			if (mdi.priority <= 0)
@@ -198,7 +204,7 @@ public class Visualization : MonoBehaviour {
 		this.calculateQuadPositions();
 	}
 
-	private IEnumerator WaitForTexture (GameObject q,MetaDataItem mdi)
+	private IEnumerator WaitForTexture (GameObject q, MetaDataItem mdi)
 	{
 		WWW www = new WWW ("file:///" + this.imageDirectory + "/" + mdi.filename);
 		yield return www;
