@@ -23,7 +23,7 @@ public class AutographerParser : MetadataParser {
 		public float VerticalError;
 	}
 
-	protected string lastFileParsed;
+	protected TextAsset lastFileParsed;
 	
 	protected override string encodingType {
 		get {
@@ -65,57 +65,38 @@ public class AutographerParser : MetadataParser {
 	}
 	
 	public bool allowInterp = true;
-	sealed override protected List<MetaDataItem> doParseFile(string fileToParse) {
+	sealed override protected List<MetaDataItem> doParseFile(TextAsset fileToParse) {
 		this.lastFileParsed = fileToParse;
 		List<MetaDataItem> result = new List<MetaDataItem>();
 		//first open the file.
-		using (CsvFileReader reader = new CsvFileReader(fileToParse)) 
+		string [,] csvData = CSVReader.SplitCsvGrid(fileToParse.text);
+		Debug.Log (csvData[0, 0]);
+		List<string> columns = new List<string>();
+		int rowIndex, colIndex;
+		int size = csvData.GetLength(1);
+		/* Not sure why i have to subtract 2. Something to do with the CSVReader I guess? */
+		for (rowIndex = 0; rowIndex < csvData.GetLength(1) - 2; rowIndex++)
 		{
-			CsvRow row = new CsvRow();
-			List<string> columns = new List<string>();
-			int rowIndex = 0;
-
-			while (reader.ReadRow(row))
+			if (rowIndex == 0)
 			{
-				//Use the first row to build column definition
-				if(rowIndex == 0){
-					foreach(var field in row){
-						columns.Add(field);
-					}
-				}else{
-					//Other rows to fill data
-					var dataItem = new AutographerMetaDataItem();
-					dataItem.id = row[columns.IndexOf("id")];
-					dataItem.dt = row[columns.IndexOf("dt")];
-					dataItem.latitude = float.Parse(row[columns.IndexOf("lat_smooth")]);
-					dataItem.longitude = float.Parse(row[columns.IndexOf("lon_smooth")]);
-					dataItem.filename = row[columns.IndexOf("imgFile")];
-					dataItem.heading = float.Parse(row[columns.IndexOf("heading")]);
-					dataItem.priority = int.Parse(row[columns.IndexOf("priority")]);
-					dataItem.episode = int.Parse(row[columns.IndexOf("episode")]);
-					
-					/*
-					 * These fiels not used and not always present in CSV file ...
-					dataItem.AccuracyX = float.Parse(row[columns.IndexOf("accx")]);
-					dataItem.AccuracyY = float.Parse(row[columns.IndexOf("accy")]);
-					dataItem.AccuracyZ = float.Parse(row[columns.IndexOf("accz")]);
-					dataItem.MagnitudeX = float.Parse(row[columns.IndexOf("magx")]);
-					dataItem.MagnitudeY = float.Parse(row[columns.IndexOf("magy")]);
-					dataItem.MagnitudeZ = float.Parse(row[columns.IndexOf("magz")]);
-					dataItem.Red = int.Parse(row[columns.IndexOf("red")]);
-					dataItem.Blue = int.Parse(row[columns.IndexOf("blue")]);
-					dataItem.Green = int.Parse(row[columns.IndexOf("green")]);
-					dataItem.Luminance = float.Parse(row[columns.IndexOf("lum")]);
-					dataItem.Temperature = float.Parse(row[columns.IndexOf("tem")]);
-					dataItem.Gs = float.Parse(row[columns.IndexOf("g")]);
-					dataItem.xOrientation = float.Parse(row[columns.IndexOf("xor")]);
-					dataItem.yOrientation = float.Parse(row[columns.IndexOf("yor")]);
-					dataItem.zOrientation = float.Parse(row[columns.IndexOf("zor")]);
-					*/
-
-					result.Add (dataItem);
+				for (colIndex = 0; colIndex < csvData.GetLength(0); colIndex++)
+				{
+					columns.Add(csvData[colIndex, rowIndex]);
 				}
-				rowIndex++;
+			}
+			else
+			{
+				var dataItem = new AutographerMetaDataItem();
+				dataItem.id = csvData[columns.IndexOf("id"), rowIndex];
+				dataItem.dt = csvData[columns.IndexOf("dt"), rowIndex];
+				dataItem.latitude = float.Parse(csvData[columns.IndexOf("lat_smooth"), rowIndex]);
+				dataItem.longitude = float.Parse(csvData[columns.IndexOf("lon_smooth"), rowIndex]);
+				dataItem.filename = csvData[columns.IndexOf("imgFile"), rowIndex];
+				dataItem.heading = float.Parse(csvData[columns.IndexOf("heading"), rowIndex]);
+				dataItem.priority = int.Parse(csvData[columns.IndexOf("priority"), rowIndex]);
+				//dataItem.stream = int.Parse(csvData[columns.IndexOf("stream"), rowIndex]);
+				result.Add (dataItem);
+				//Debug.Log ("added row " + rowIndex + " of " + size);
 			}
 		}
 		

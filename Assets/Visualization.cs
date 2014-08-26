@@ -36,7 +36,7 @@ public class Visualization : MonoBehaviour {
 	//public LockToPath pather;
 	
 	public string projectName;
-	public string csvMetadataFile;
+	public TextAsset csvMetadataFile;
 	public string imageDirectory;
 	public string imageExtension;
 	public GameObject [] quadTemplates;

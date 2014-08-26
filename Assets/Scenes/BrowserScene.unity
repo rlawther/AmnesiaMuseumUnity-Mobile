@@ -927,7 +927,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 560521051}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5c281ac42272e6445b7054eef58b345f, type: 3}
   m_Name: 
@@ -4707,10 +4707,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 2108953008}
   - 114: {fileID: 2108953014}
-  - 114: {fileID: 2108953013}
-  - 114: {fileID: 2108953012}
-  - 114: {fileID: 2108953011}
-  - 114: {fileID: 2108953010}
   - 114: {fileID: 2108953009}
   - 114: {fileID: 2108953015}
   m_Layer: 0
@@ -4745,57 +4741,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fpc: {fileID: 1115516425}
   baseScripts: {fileID: 560521051}
---- !u!114 &2108953010
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2108953007}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0745469c9e91294986210c5ff676b1c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &2108953011
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2108953007}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8da1fd0d746e24a5cbd6b18b2c481d83, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  offset: 1
-  divider: 10
---- !u!114 &2108953012
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2108953007}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8307870c61a6d9c42b106aba95553042, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fadeOut: 1
-  fadeOutMin: .200000003
-  beforeFadeOut: 1
-  picsPerSecond: 1
---- !u!114 &2108953013
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2108953007}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95d028394ecc8b348b610054856d1423, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  picsPerSecond: .5
 --- !u!114 &2108953014
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4809,7 +4754,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tvisLayout: 0
   datasets:
-  - csvMetadataFile: Assets/CSV/g1_combined_subset.csv
+  - csvMetadataFile: {fileID: 4900000, guid: c69601f6281af214f97805989ff9fcbb, type: 3}
     imageDirectory: D:/Media/AmnesiaMuseum/G1_img_sml
     imageExtension: 
     quadTemplates:
@@ -4817,7 +4762,7 @@ MonoBehaviour:
     - {fileID: 1219079612}
     - {fileID: 910759565}
     - {fileID: 705441260}
-  - csvMetadataFile: Assets/CSV/g2_combined_subset.csv
+  - csvMetadataFile: {fileID: 4900000, guid: e66b38e1b1e071c42bedfc12e5be0a4a, type: 3}
     imageDirectory: D:/Media/AmnesiaMuseum/G2_img_sml
     imageExtension: 
     quadTemplates:

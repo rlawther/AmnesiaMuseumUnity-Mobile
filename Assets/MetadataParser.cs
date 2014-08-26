@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 
 public abstract class MetadataParser : MonoBehaviour {
-	public string csvMetadataFile;
+	public TextAsset csvMetadataFile;
 
 	private string projectName = "";
 	public string ProjectName 
@@ -56,13 +56,13 @@ public abstract class MetadataParser : MonoBehaviour {
 		}
 	}
 	
-	void parseFile(string fileToParse) {
+	void parseFile(TextAsset fileToParse) {
 		this.output = this.doParseFile(fileToParse);
 		
 	}
 	
 	//parse the file
-	abstract protected List<MetaDataItem> doParseFile(string fileToParse);
+	abstract protected List<MetaDataItem> doParseFile(TextAsset fileToParse);
 	
 	//return an array of floats representing a single data item.
 	virtual public List<float> showGraphOptions(){ 

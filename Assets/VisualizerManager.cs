@@ -10,7 +10,7 @@ public class VisualizerManager : MonoBehaviour {
 	//private VisOptions visOps;
 	[System.Serializable]
 	public class Dataset {
-		public string csvMetadataFile;
+		public TextAsset csvMetadataFile;
 		public string imageDirectory;
 		public string imageExtension;
 		public GameObject[] quadTemplates;
@@ -48,7 +48,7 @@ public class VisualizerManager : MonoBehaviour {
 		for (int i = 0; i < datasets.Length; i++) {
 			var dataset = datasets[i];
 			dataset.imageDirectory = Path.GetFullPath(dataset.imageDirectory);
-			dataset.csvMetadataFile = Path.GetFullPath(dataset.csvMetadataFile);
+			//dataset.csvMetadataFile = Path.GetFullPath(dataset.csvMetadataFile);
 
 			Visualization v = this.createVisualization(datasets[i], photoParent.transform);
 			visualizations[i] = v;
@@ -64,14 +64,14 @@ public class VisualizerManager : MonoBehaviour {
 		GameObject go = new GameObject();
 		//string folderName = new DirectoryInfo(rootFolder).Name;
 		Visualization v = go.AddComponent<Visualization>();		
-		go.name = dataset.csvMetadataFile;			
+		go.name = dataset.csvMetadataFile.name;			
 		go.transform.parent = parent;	
 		
 		AutographerParser parser = go.AddComponent<AutographerParser>();
 		//parser.allowInterp = this.GetComponent<AutographerParser>().allowInterp;
 		//parser.imageResolution = this.GetComponent<AutographerParser>().imageResolution;		
 		
-		v.projectName = dataset.csvMetadataFile;
+		v.projectName = dataset.csvMetadataFile.name;
 		v.csvMetadataFile = dataset.csvMetadataFile;
 		v.imageDirectory = dataset.imageDirectory;
 		v.imageExtension = dataset.imageExtension;
