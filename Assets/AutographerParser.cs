@@ -94,7 +94,7 @@ public class AutographerParser : MetadataParser {
 				dataItem.filename = csvData[columns.IndexOf("imgFile"), rowIndex];
 				dataItem.heading = float.Parse(csvData[columns.IndexOf("heading"), rowIndex]);
 				dataItem.priority = int.Parse(csvData[columns.IndexOf("priority"), rowIndex]);
-				//dataItem.stream = int.Parse(csvData[columns.IndexOf("stream"), rowIndex]);
+				dataItem.episode = int.Parse(csvData[columns.IndexOf("episode"), rowIndex]);
 				result.Add (dataItem);
 				//Debug.Log ("added row " + rowIndex + " of " + size);
 			}
