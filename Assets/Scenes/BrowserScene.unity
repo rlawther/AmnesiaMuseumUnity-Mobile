@@ -1012,7 +1012,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &686181063
 Transform:
   m_ObjectHideFlags: 0
@@ -2347,6 +2347,7 @@ GameObject:
   - 33: {fileID: 1123191997}
   - 64: {fileID: 1123191996}
   - 23: {fileID: 1123191995}
+  - 95: {fileID: 1123191998}
   m_Layer: 0
   m_Name: Plane Ship
   m_TagString: Untagged
@@ -2360,8 +2361,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1123191993}
-  m_LocalRotation: {x: -1.15202333e-07, y: .707106769, z: -.707106888, w: -1.15202319e-07}
-  m_LocalPosition: {x: 55.8263626, y: 6.5516839, z: 92.3885574}
+  m_LocalRotation: {x: -.466020852, y: .531812549, z: -.531812787, w: -.466020644}
+  m_LocalPosition: {x: 330.88147, y: 6.55164528, z: -270.93515}
   m_LocalScale: {x: 5.38000011, y: .247999117, z: 1.37}
   m_Children: []
   m_Father: {fileID: 1438021461}
@@ -2406,6 +2407,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1123191993}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!95 &1123191998
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1123191993}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e099f3ce3518447a4ac05dba37da6936, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1123196076
 GameObject:
   m_ObjectHideFlags: 0
@@ -4502,12 +4518,12 @@ Light:
   serializedVersion: 3
   m_Type: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: .5
+  m_Intensity: .300000012
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 1
     m_Resolution: -1
     m_Strength: 1
     m_Bias: .0500000007
@@ -4533,8 +4549,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2098961780}
-  m_LocalRotation: {x: .408217937, y: -.234569728, z: .109381661, w: .875426114}
-  m_LocalPosition: {x: 895.631531, y: -316.036743, z: 1.37893391}
+  m_LocalRotation: {x: .185189009, y: .67865175, z: -.187101334, w: .685660243}
+  m_LocalPosition: {x: 755.516663, y: 1048.76892, z: 134.889679}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1148314557}
@@ -4739,65 +4755,60 @@ MonoBehaviour:
   fadeCurveG1E1:
     serializedVersion: 2
     m_Curve:
-    - time: -.0052120788
-      value: .998000562
-      inSlope: .000755430839
-      outSlope: .000755430839
+    - time: -.00621270668
+      value: -.00463283062
+      inSlope: 1.46078241
+      outSlope: 1.46078241
       tangentMode: 10
-    - time: .679732084
-      value: .99851799
-      inSlope: .000755430839
-      outSlope: .000755430839
+    - time: .712383211
+      value: 1.04507947
+      inSlope: 1.46078241
+      outSlope: 1.46078241
       tangentMode: 10
     m_PreInfinity: 2
     m_PostInfinity: 2
   fadeCurveG1E2:
     serializedVersion: 2
     m_Curve:
-    - time: .000905797118
-      value: .999999881
-      inSlope: -.00281833112
-      outSlope: -.00281833112
-      tangentMode: 10
-    - time: .494775265
-      value: .998607993
-      inSlope: .00209761155
-      outSlope: .00209761155
-      tangentMode: 10
-    - time: .942934811
-      value: 1.00175118
-      inSlope: .00701355422
-      outSlope: .00701355422
-      tangentMode: 10
+    - time: 0
+      value: -.0079741478
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: -.0079741478
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
   fadeCurveG1E3:
     serializedVersion: 2
     m_Curve:
-    - time: -.00271739135
-      value: .999999881
-      inSlope: .00621399516
-      outSlope: .00621399516
-      tangentMode: 10
-    - time: .0395833328
-      value: 1.00026274
-      inSlope: .00621399516
-      outSlope: .00621399516
-      tangentMode: 10
+    - time: 0
+      value: -.0100910664
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: -.0100910664
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
   fadeCurveG2E1:
     serializedVersion: 2
     m_Curve:
-    - time: 0
-      value: .999999881
-      inSlope: -1.01543581
-      outSlope: -1.01543581
+    - time: .00248966622
+      value: -.000329222996
+      inSlope: -.00179148279
+      outSlope: -.00179148279
       tangentMode: 10
-    - time: .934782624
-      value: .0507880859
-      inSlope: -1.01543581
-      outSlope: -1.01543581
+    - time: .956108451
+      value: -.00203761458
+      inSlope: -.00179148279
+      outSlope: -.00179148279
       tangentMode: 10
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -4805,12 +4816,12 @@ MonoBehaviour:
     serializedVersion: 2
     m_Curve:
     - time: -.00181159424
-      value: 1.00350249
+      value: -.0174197555
       inSlope: .00350260735
       outSlope: .00350260735
       tangentMode: 10
     - time: .998188376
-      value: 1.0070051
+      value: -.0139171481
       inSlope: .00350260735
       outSlope: .00350260735
       tangentMode: 10
@@ -4835,12 +4846,12 @@ MonoBehaviour:
     serializedVersion: 2
     m_Curve:
     - time: -.00362318847
-      value: 1.00525379
+      value: -.0295550823
       inSlope: 0
       outSlope: 0
       tangentMode: 10
     - time: .98550725
-      value: 1.00525379
+      value: -.0295550823
       inSlope: 0
       outSlope: 0
       tangentMode: 10
