@@ -12,10 +12,13 @@ public class BillboardAndFade : MonoBehaviour {
 	private VisualizerManager visManager;
 	private GameObject player;
 	
+	private GameObject photoParent = null;
+	
 	// Use this for initialization
 	void Start () {
 		this.visManager = gameObject.GetComponent<VisualizerManager> ();
 		player = GameObject.Find ("First Person Controller");
+		
 	}
 	
 	// Update is called once per frame
@@ -25,33 +28,37 @@ public class BillboardAndFade : MonoBehaviour {
 			player = GameObject.Find ("First Person Controller");
 			return;
 		}
-		foreach (var currentVis in this.visManager.visualizations) {
-			if(currentVis.targetMetadataParser.output == null)
-				continue;
-			
-			foreach (var imageItem in currentVis.targetMetadataParser.output) {
-				//If the item doesn't have a transform, go to the next item. 
-				if (imageItem.transform == null)
-					continue;
-				
-				var distance = Vector3.Distance (imageItem.transform.position, player.transform.position);
-				//var opacity = distance / divider - offset;
-				if (applyFade)
+		if (photoParent == null)
+		{
+			photoParent = GameObject.Find ("Photos");
+		}
+		
+		foreach (Transform narrativeScenario in photoParent.transform)
+		{
+			foreach (Transform episode in narrativeScenario)
+			{
+				foreach (Transform photo in episode)
 				{
-					imageItem.material.color = 
-					  new Color (1.0f, 1.0f, 1.0f, fadeCurve.Evaluate(distance / fadeDistanceMultiplier));
-				}
-				if (applyBillboard)
-				{
-					if (distance < billboardRadius)
+					var distance = Vector3.Distance (photo.position, player.transform.position);
+					//var opacity = distance / divider - offset;
+					if (applyFade)
 					{
-						imageItem.transform.LookAt(new Vector3(player.transform.position.x,
-						                                       imageItem.transform.position.y,
-						                                       player.transform.position.z));
-						//Debug.Log ("billboard");
+						photo.gameObject.renderer.material.color = 
+							new Color (1.0f, 1.0f, 1.0f, fadeCurve.Evaluate(distance / fadeDistanceMultiplier));
+					}
+					if (applyBillboard)
+					{
+						if (distance < billboardRadius)
+						{
+							photo.LookAt(new Vector3(player.transform.position.x,
+							                         photo.position.y,
+							                         player.transform.position.z));
+						}
 					}
 				}
 			}
+			
 		}
+		
 	}
 }
