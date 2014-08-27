@@ -831,7 +831,7 @@ MonoBehaviour:
   tvisLayout: 0
   datasets:
   - csvMetadataFile: {fileID: 0}
-    imageDirectory: D:/Media/AmnesiaMuseum/G1_img_sml
+    imageDirectory: /Users/volker/MEDIA/G2_img_sml
     imageExtension: 
     quadTemplates:
     - {fileID: 756495611}
@@ -839,7 +839,7 @@ MonoBehaviour:
     - {fileID: 378943865}
     - {fileID: 1383771421}
   - csvMetadataFile: {fileID: 0}
-    imageDirectory: D:/Media/AmnesiaMuseum/G2_img_sml
+    imageDirectory: /Users/volker/MEDIA/G2_img_sml
     imageExtension: 
     quadTemplates:
     - {fileID: 803741280}
