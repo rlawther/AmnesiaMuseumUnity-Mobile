@@ -903,6 +903,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 560521052}
   - 114: {fileID: 560521053}
+  - 114: {fileID: 560521054}
   m_Layer: 0
   m_Name: BaseScripts
   m_TagString: Untagged
@@ -935,6 +936,17 @@ MonoBehaviour:
   ic: {fileID: 1115516426}
   yAxisTurn: 1
   firstPersonController: {fileID: 1115516425}
+--- !u!114 &560521054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 560521051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bbfbc5a6f2867941aadad7dabb1c352, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &596426408
 GameObject:
   m_ObjectHideFlags: 0
@@ -4800,15 +4812,15 @@ MonoBehaviour:
   fadeCurveG1E1:
     serializedVersion: 2
     m_Curve:
-    - time: .00724637695
-      value: .0140105067
-      inSlope: 1.41349971
-      outSlope: 1.41349971
+    - time: -.0052120788
+      value: .998000562
+      inSlope: .000755430839
+      outSlope: .000755430839
       tangentMode: 10
-    - time: .694953084
-      value: .986083686
-      inSlope: 1.41349971
-      outSlope: 1.41349971
+    - time: .679732084
+      value: .99851799
+      inSlope: .000755430839
+      outSlope: .000755430839
       tangentMode: 10
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -4817,24 +4829,34 @@ MonoBehaviour:
     m_Curve:
     - time: .000905797118
       value: .999999881
-      inSlope: -2.00740695
-      outSlope: -2.00740695
+      inSlope: -.00281833112
+      outSlope: -.00281833112
       tangentMode: 10
-    - time: .498188406
-      value: .00175131334
-      inSlope: .120532632
-      outSlope: .120532632
+    - time: .494775265
+      value: .998607993
+      inSlope: .00209761155
+      outSlope: .00209761155
       tangentMode: 10
     - time: .942934811
       value: 1.00175118
-      inSlope: 2.24847221
-      outSlope: 2.24847221
+      inSlope: .00701355422
+      outSlope: .00701355422
       tangentMode: 10
     m_PreInfinity: 2
     m_PostInfinity: 2
   fadeCurveG1E3:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - time: -.00271739135
+      value: .999999881
+      inSlope: .00621399516
+      outSlope: .00621399516
+      tangentMode: 10
+    - time: .0395833328
+      value: 1.00026274
+      inSlope: .00621399516
+      outSlope: .00621399516
+      tangentMode: 10
     m_PreInfinity: 2
     m_PostInfinity: 2
   fadeCurveG2E1:
@@ -4854,17 +4876,47 @@ MonoBehaviour:
     m_PostInfinity: 2
   fadeCurveG2E2:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - time: -.00181159424
+      value: 1.00350249
+      inSlope: .00350260735
+      outSlope: .00350260735
+      tangentMode: 10
+    - time: .998188376
+      value: 1.0070051
+      inSlope: .00350260735
+      outSlope: .00350260735
+      tangentMode: 10
     m_PreInfinity: 2
     m_PostInfinity: 2
   fadeCurveG2E3:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - time: 0
+      value: 1.00350249
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 10
+    - time: .998188376
+      value: 1.00350249
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 10
     m_PreInfinity: 2
     m_PostInfinity: 2
   fadeCurveG2E4:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - time: -.00362318847
+      value: 1.00525379
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 10
+    - time: .98550725
+      value: 1.00525379
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 10
     m_PreInfinity: 2
     m_PostInfinity: 2
   fadeDistanceMultiplier: 100

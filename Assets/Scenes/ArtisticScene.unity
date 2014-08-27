@@ -777,35 +777,40 @@ MonoBehaviour:
   - 100
   - 100
   - 100
-  applyFade: 1
-  fadeCurve:
+  applyFade: 0
+  fadeCurveG1E1:
     serializedVersion: 2
-    m_Curve:
-    - time: .00663716812
-      value: .196498156
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - time: .24999997
-      value: 1.0019455
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - time: .252212375
-      value: 1.00194538
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - time: .741150439
-      value: .0933851972
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - time: .984513283
-      value: .103112832
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  fadeCurveG1E2:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  fadeCurveG1E3:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  fadeCurveG2E1:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  fadeCurveG2E2:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  fadeCurveG2E3:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  fadeCurveG2E4:
+    serializedVersion: 2
+    m_Curve: []
     m_PreInfinity: 2
     m_PostInfinity: 2
   fadeDistanceMultiplier: 100
@@ -822,7 +827,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tvisLayout: 0
   datasets:
-  - csvMetadataFile: {fileID: 0}
+  - csvMetadataFile: {fileID: 4900000, guid: c69601f6281af214f97805989ff9fcbb, type: 3}
     imageDirectory: /Users/volker/MEDIA/G2_img_sml
     imageExtension: 
     quadTemplates:
@@ -830,7 +835,7 @@ MonoBehaviour:
     - {fileID: 756495611}
     - {fileID: 378943865}
     - {fileID: 1383771421}
-  - csvMetadataFile: {fileID: 0}
+  - csvMetadataFile: {fileID: 4900000, guid: e66b38e1b1e071c42bedfc12e5be0a4a, type: 3}
     imageDirectory: /Users/volker/MEDIA/G2_img_sml
     imageExtension: 
     quadTemplates:
@@ -3666,6 +3671,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1608910740}
   - 114: {fileID: 1608910741}
+  - 114: {fileID: 1608910742}
   m_Layer: 0
   m_Name: BaseScripts
   m_TagString: Untagged
@@ -3698,6 +3704,17 @@ MonoBehaviour:
   ic: {fileID: 1115516426}
   yAxisTurn: 0
   firstPersonController: {fileID: 0}
+--- !u!114 &1608910742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1608910739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bbfbc5a6f2867941aadad7dabb1c352, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1615908231
 GameObject:
   m_ObjectHideFlags: 0
