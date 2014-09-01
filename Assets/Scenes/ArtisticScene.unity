@@ -19,7 +19,7 @@ RenderSettings:
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientLight: {r: 1, g: 1, b: 1, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: ea16faeb2a5bd447e9b7ba7bb93ad52f, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: a58dbb749704d944f910ac2e4d24e83b, type: 2}
   m_HaloStrength: .5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -715,7 +715,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: .00999999978}
+  m_Size: {x: 1, y: 2, z: .00999999978}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &285441273
 MeshFilter:
@@ -840,7 +840,7 @@ MonoBehaviour:
   tvisLayout: 0
   datasets:
   - csvMetadataFile: {fileID: 4900000, guid: c69601f6281af214f97805989ff9fcbb, type: 3}
-    imageDirectory: /Volumes/Data/Users/z3050550/Documents/Amnesia/G1_img_sml
+    imageDirectory: C:\Media\Amnesia\G1_img_sml
     imageExtension: 
     quadTemplates:
     - {fileID: 756495611}
@@ -848,7 +848,7 @@ MonoBehaviour:
     - {fileID: 378943865}
     - {fileID: 1383771421}
   - csvMetadataFile: {fileID: 4900000, guid: e66b38e1b1e071c42bedfc12e5be0a4a, type: 3}
-    imageDirectory: /Volumes/Data/Users/z3050550/Documents/Amnesia/G2_img_sml
+    imageDirectory: C:\Media\Amnesia\G2_img_sml
     imageExtension: 
     quadTemplates:
     - {fileID: 803741280}
@@ -1033,7 +1033,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 4.57000017, z: .00999999978}
+  m_Size: {x: 1, y: 2, z: .00999999978}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &378943871
 MeshFilter:
@@ -1560,7 +1560,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: .00999999978}
+  m_Size: {x: 1, y: 2, z: .00999999978}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &756495617
 MeshFilter:
@@ -1701,7 +1701,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: .00999999978}
+  m_Size: {x: 1, y: 2, z: .00999999978}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &803741286
 MeshFilter:
@@ -2299,7 +2299,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: .00999999978}
+  m_Size: {x: 1, y: 2, z: .00999999978}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &1003242772
 MeshFilter:
@@ -3297,7 +3297,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: .00999999978}
+  m_Size: {x: 1, y: 2, z: .00999999978}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &1383771427
 MeshFilter:
@@ -4067,7 +4067,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: .00999999978}
+  m_Size: {x: 1, y: 2, z: .00999999978}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &1722547607
 MeshFilter:

@@ -1144,7 +1144,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: .00999999978}
+  m_Size: {x: 1, y: 2, z: .00999999978}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &705441266
 MeshFilter:
@@ -1681,7 +1681,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: .00999999978}
+  m_Size: {x: 1, y: 2, z: .00999999978}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &910759571
 MeshFilter:
@@ -2833,7 +2833,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: .00999999978}
+  m_Size: {x: 1, y: 2, z: .00999999978}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &1219079617
 MeshFilter:
@@ -3544,7 +3544,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: .00999999978}
+  m_Size: {x: 1, y: 2, z: .00999999978}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &1695448301
 MeshFilter:
@@ -3641,7 +3641,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: .00999999978}
+  m_Size: {x: 1, y: 2, z: .00999999978}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &1712762961
 MeshFilter:
@@ -4162,7 +4162,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: .00999999978}
+  m_Size: {x: 1, y: 2, z: .00999999978}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &2015404411
 MeshFilter:
@@ -4631,7 +4631,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: .00999999978}
+  m_Size: {x: 1, y: 2, z: .00999999978}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &2103519110
 MeshFilter:
@@ -4698,15 +4698,15 @@ MonoBehaviour:
   tvisLayout: 0
   datasets:
   - csvMetadataFile: {fileID: 4900000, guid: 66c7a687bf9bdde4a9b9b553628b7e49, type: 3}
-    imageDirectory: /Volumes/Data/Users/z3050550/Documents/Amnesia/G1_img_sml
+    imageDirectory: C:\Media\Amnesia\G1_img_sml
     imageExtension: 
     quadTemplates:
     - {fileID: 1219079612}
     - {fileID: 1219079612}
     - {fileID: 910759565}
     - {fileID: 705441260}
-  - csvMetadataFile: {fileID: 4900000, guid: e66b38e1b1e071c42bedfc12e5be0a4a, type: 3}
-    imageDirectory: /Volumes/Data/Users/z3050550/Documents/Amnesia/G2_img_sml
+  - csvMetadataFile: {fileID: 4900000, guid: 367e3f233316b16489aeb468a9764909, type: 3}
+    imageDirectory: C:\Media\Amnesia\G2_img_sml
     imageExtension: 
     quadTemplates:
     - {fileID: 2015404405}
