@@ -285,7 +285,6 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &33691827
 GameObject:
   m_ObjectHideFlags: 0
@@ -463,7 +462,6 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &237742672
 GameObject:
   m_ObjectHideFlags: 0
@@ -495,7 +493,6 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!4 &237742674
 Transform:
   m_ObjectHideFlags: 0
@@ -567,7 +564,6 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &246234289
 GameObject:
   m_ObjectHideFlags: 0
@@ -1088,7 +1084,7 @@ Transform:
   m_GameObject: {fileID: 705441260}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3373, y: 43.5750198, z: -93.1181335}
-  m_LocalScale: {x: 6.6500001, y: 5, z: 5}
+  m_LocalScale: {x: 6, y: 4.5, z: 5}
   m_Children: []
   m_Father: {fileID: 246234290}
   m_RootOrder: 3
@@ -1283,7 +1279,6 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1001 &809646242
 Prefab:
   m_ObjectHideFlags: 0
@@ -1389,7 +1384,6 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!64 &824799973
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1510,7 +1504,6 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &862351108
 GameObject:
   m_ObjectHideFlags: 0
@@ -1628,7 +1621,7 @@ Transform:
   m_GameObject: {fileID: 910759565}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3373, y: 43.5750198, z: -93.1181335}
-  m_LocalScale: {x: 6.6500001, y: 5, z: 5}
+  m_LocalScale: {x: 6, y: 4.5, z: 5}
   m_Children: []
   m_Father: {fileID: 246234290}
   m_RootOrder: 2
@@ -2080,7 +2073,6 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1055853343
 GameObject:
   m_ObjectHideFlags: 0
@@ -2421,7 +2413,6 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1123196076
 GameObject:
   m_ObjectHideFlags: 0
@@ -2453,7 +2444,6 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!4 &1123196078
 Transform:
   m_ObjectHideFlags: 0
@@ -2860,7 +2850,7 @@ Transform:
   m_GameObject: {fileID: 1219079612}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3373, y: 43.5750198, z: -93.1181335}
-  m_LocalScale: {x: 13, y: 10, z: 10}
+  m_LocalScale: {x: 6, y: 4.5, z: 10}
   m_Children: []
   m_Father: {fileID: 246234290}
   m_RootOrder: 1
@@ -3081,7 +3071,6 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1547898523
 GameObject:
   m_ObjectHideFlags: 0
@@ -3125,8 +3114,8 @@ Renderer:
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
   - {fileID: 2100000, guid: 3784b686f0fa44b34b1cbda643565d0d, type: 2}
-  - {fileID: 2100000, guid: 84040da26b54444f78c11df4a5f9921e, type: 2}
-  - {fileID: 2100000, guid: c35e7cdf0e41b4718aef532148a588d8, type: 2}
+  - {fileID: 2100000, guid: 81be8ce469b56479092c1c561e1d8b70, type: 2}
+  - {fileID: 2100000, guid: a2f6db417fc1c4db5a4d6edd9154ac14, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -3896,7 +3885,6 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1843481252
 GameObject:
   m_ObjectHideFlags: 0
@@ -4709,8 +4697,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tvisLayout: 0
   datasets:
-  - csvMetadataFile: {fileID: 4900000, guid: c69601f6281af214f97805989ff9fcbb, type: 3}
-    imageDirectory: /Users/volker/MEDIA/G1_img_sml
+  - csvMetadataFile: {fileID: 4900000, guid: 66c7a687bf9bdde4a9b9b553628b7e49, type: 3}
+    imageDirectory: /Volumes/Data/Users/z3050550/Documents/Amnesia/G1_img_sml
     imageExtension: 
     quadTemplates:
     - {fileID: 1219079612}
@@ -4718,7 +4706,7 @@ MonoBehaviour:
     - {fileID: 910759565}
     - {fileID: 705441260}
   - csvMetadataFile: {fileID: 4900000, guid: e66b38e1b1e071c42bedfc12e5be0a4a, type: 3}
-    imageDirectory: /Users/volker/MEDIA/G2_img_sml
+    imageDirectory: /Volumes/Data/Users/z3050550/Documents/Amnesia/G2_img_sml
     imageExtension: 
     quadTemplates:
     - {fileID: 2015404405}
@@ -4775,8 +4763,8 @@ MonoBehaviour:
       inSlope: 0
       outSlope: 0
       tangentMode: 0
-    - time: 1
-      value: -.0079741478
+    - time: 1.00907171
+      value: 1.00339234
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -4790,8 +4778,8 @@ MonoBehaviour:
       inSlope: 0
       outSlope: 0
       tangentMode: 0
-    - time: 1
-      value: -.0100910664
+    - time: .984054387
+      value: 1.00204921
       inSlope: 0
       outSlope: 0
       tangentMode: 0

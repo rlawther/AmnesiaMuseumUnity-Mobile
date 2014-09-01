@@ -176,7 +176,6 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &195366975
 GameObject:
   m_ObjectHideFlags: 0
@@ -221,7 +220,6 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &237742672
 GameObject:
   m_ObjectHideFlags: 0
@@ -253,7 +251,6 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!4 &237742674
 Transform:
   m_ObjectHideFlags: 0
@@ -325,7 +322,6 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &246234289
 GameObject:
   m_ObjectHideFlags: 0
@@ -914,7 +910,6 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1001 &809646242
 Prefab:
   m_ObjectHideFlags: 0
@@ -1214,7 +1209,6 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!64 &824799973
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1369,7 +1363,6 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &877104094
 GameObject:
   m_ObjectHideFlags: 0
@@ -2102,7 +2095,6 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1060258629
 GameObject:
   m_ObjectHideFlags: 0
@@ -2257,7 +2249,6 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!4 &1123196078
 Transform:
   m_ObjectHideFlags: 0
@@ -2871,7 +2862,6 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1542676184
 GameObject:
   m_ObjectHideFlags: 0
@@ -3012,8 +3002,8 @@ Renderer:
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
   - {fileID: 2100000, guid: 6d05c47935d6d42fca19a79d5bc4d630, type: 2}
-  - {fileID: 2100000, guid: 84040da26b54444f78c11df4a5f9921e, type: 2}
-  - {fileID: 2100000, guid: c35e7cdf0e41b4718aef532148a588d8, type: 2}
+  - {fileID: 2100000, guid: 81be8ce469b56479092c1c561e1d8b70, type: 2}
+  - {fileID: 2100000, guid: a2f6db417fc1c4db5a4d6edd9154ac14, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -3522,7 +3512,6 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1843481252
 GameObject:
   m_ObjectHideFlags: 0
