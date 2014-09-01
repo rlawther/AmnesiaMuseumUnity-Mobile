@@ -522,7 +522,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &238075615
 Transform:
   m_ObjectHideFlags: 0
@@ -1392,7 +1392,7 @@ MeshCollider:
   m_GameObject: {fileID: 824799970}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_SmoothSphereCollisions: 0
   m_Convex: 0
@@ -2687,7 +2687,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: ebbc6988737de374f93fc744604979a8, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: ebbc6988737de374f93fc744604979a8, type: 3}
       propertyPath: m_RootOrder
@@ -3114,8 +3114,8 @@ Renderer:
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
   - {fileID: 2100000, guid: 3784b686f0fa44b34b1cbda643565d0d, type: 2}
-  - {fileID: 2100000, guid: 81be8ce469b56479092c1c561e1d8b70, type: 2}
-  - {fileID: 2100000, guid: a2f6db417fc1c4db5a4d6edd9154ac14, type: 2}
+  - {fileID: 2100000, guid: a5c17af91bbcd8e47895424f2d9b4a03, type: 2}
+  - {fileID: 2100000, guid: 78067d23aa71ee24ca66b3226f3cbeac, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
