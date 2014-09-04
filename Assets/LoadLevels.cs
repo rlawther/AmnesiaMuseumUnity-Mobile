@@ -19,11 +19,15 @@ public class LoadLevels : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		RenderSettingsSetter rss;
+		
 		if ((!init) && (!Application.isLoadingLevel))
 		{
 			artisticSceneParent = GameObject.Find("ArtisticSceneParent");
 			browserSceneParent = GameObject.Find("BrowserSceneParent");
 			browserSceneParent.SetActive(false);
+			rss = LoadLevels.artisticSceneParent.transform.Find("Scripts/BaseScripts").GetComponent<RenderSettingsSetter>();
+			rss.set();
 			init = true;
 		}
 		

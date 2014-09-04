@@ -20,7 +20,7 @@ public class RenderSettingsSetter : MonoBehaviour {
 	
 	}
 	
-	void set()
+	public void set()
 	{
 		RenderSettings.fog = fog;
 		RenderSettings.fogColor = fogColour;

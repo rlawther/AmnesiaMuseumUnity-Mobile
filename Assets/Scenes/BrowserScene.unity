@@ -904,6 +904,7 @@ GameObject:
   - 4: {fileID: 560521052}
   - 114: {fileID: 560521053}
   - 114: {fileID: 560521054}
+  - 114: {fileID: 560521055}
   m_Layer: 0
   m_Name: BaseScripts
   m_TagString: Untagged
@@ -947,6 +948,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bbfbc5a6f2867941aadad7dabb1c352, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &560521055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 560521051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3119e99cdc4e13a4fb637c9f85465511, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fog: 0
+  fogColour: {r: .0570934415, g: .0855744407, b: .647058845, a: 0}
+  fogDensity: .200000003
+  ambientLight: {r: 0, g: 0, b: 0, a: 0}
+  skyboxMaterial: {fileID: 2100000, guid: 9701252f373944803bdb19d62b4da717, type: 2}
 --- !u!1 &640201016
 GameObject:
   m_ObjectHideFlags: 0
@@ -3081,8 +3098,8 @@ Renderer:
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
   - {fileID: 2100000, guid: 3784b686f0fa44b34b1cbda643565d0d, type: 2}
-  - {fileID: 2100000, guid: a5c17af91bbcd8e47895424f2d9b4a03, type: 2}
-  - {fileID: 2100000, guid: 78067d23aa71ee24ca66b3226f3cbeac, type: 2}
+  - {fileID: 2100000, guid: 84040da26b54444f78c11df4a5f9921e, type: 2}
+  - {fileID: 2100000, guid: c35e7cdf0e41b4718aef532148a588d8, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -4611,7 +4628,6 @@ GameObject:
   - 114: {fileID: 2108953014}
   - 114: {fileID: 2108953009}
   - 114: {fileID: 2108953015}
-  - 114: {fileID: 2108953010}
   m_Layer: 0
   m_Name: Scripts
   m_TagString: Untagged
@@ -4644,22 +4660,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fpc: {fileID: 1115516425}
   baseScripts: {fileID: 560521051}
---- !u!114 &2108953010
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2108953007}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3119e99cdc4e13a4fb637c9f85465511, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fog: 0
-  fogColour: {r: .0570934415, g: .0855744407, b: .647058845, a: 0}
-  fogDensity: .200000003
-  ambientLight: {r: 0, g: 0, b: 0, a: 0}
-  skyboxMaterial: {fileID: 2100000, guid: 9701252f373944803bdb19d62b4da717, type: 2}
 --- !u!114 &2108953014
 MonoBehaviour:
   m_ObjectHideFlags: 0
