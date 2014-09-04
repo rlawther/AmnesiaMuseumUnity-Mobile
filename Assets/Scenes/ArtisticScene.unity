@@ -725,6 +725,7 @@ GameObject:
   - 114: {fileID: 291379402}
   - 114: {fileID: 291379397}
   - 114: {fileID: 291379398}
+  - 114: {fileID: 291379396}
   m_Layer: 0
   m_Name: Scripts
   m_TagString: Untagged
@@ -744,6 +745,22 @@ Transform:
   m_Children:
   - {fileID: 1608910740}
   m_Father: {fileID: 1618348267}
+--- !u!114 &291379396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 291379394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3119e99cdc4e13a4fb637c9f85465511, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fog: 1
+  fogColour: {r: .0421712659, g: .237516344, b: .95588237, a: 0}
+  fogDensity: .200000003
+  ambientLight: {r: 0, g: 0, b: 0, a: 0}
+  skyboxMaterial: {fileID: 0}
 --- !u!114 &291379397
 MonoBehaviour:
   m_ObjectHideFlags: 0
