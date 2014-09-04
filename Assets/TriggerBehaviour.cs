@@ -15,7 +15,7 @@ public class TriggerBehaviour : MonoBehaviour {
 	void OnTriggerEnter(Collider other) {
 		//Debug.Log ("Collided with " + other.name);
 		/* When we collide with the terrain, we stop the quad from moving */
-		if (other.name.EndsWith("terrain_collider"))
+		if (other.name.Contains("terrain"))
 		{
 			gameObject.rigidbody.isKinematic = true;
 			gameObject.collider.enabled = false;
