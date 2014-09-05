@@ -1067,7 +1067,6 @@ GameObject:
   - 4: {fileID: 705441261}
   - 33: {fileID: 705441266}
   - 23: {fileID: 705441264}
-  - 114: {fileID: 705441262}
   m_Layer: 0
   m_Name: QuadTemplate_g1e3
   m_TagString: Untagged
@@ -1086,17 +1085,6 @@ Transform:
   m_LocalScale: {x: 6, y: 4.5, z: 5}
   m_Children: []
   m_Father: {fileID: 246234290}
---- !u!114 &705441262
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 705441260}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a3d961c3725d9841b8b55e0f01cc68c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &705441264
 Renderer:
   m_ObjectHideFlags: 0
@@ -1569,7 +1557,6 @@ GameObject:
   - 4: {fileID: 910759566}
   - 33: {fileID: 910759571}
   - 23: {fileID: 910759569}
-  - 114: {fileID: 910759567}
   m_Layer: 0
   m_Name: QuadTemplate_g1e2
   m_TagString: Untagged
@@ -1588,17 +1575,6 @@ Transform:
   m_LocalScale: {x: 6, y: 4.5, z: 5}
   m_Children: []
   m_Father: {fileID: 246234290}
---- !u!114 &910759567
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 910759565}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a3d961c3725d9841b8b55e0f01cc68c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &910759569
 Renderer:
   m_ObjectHideFlags: 0
@@ -2697,7 +2673,6 @@ GameObject:
   - 4: {fileID: 1219079618}
   - 33: {fileID: 1219079617}
   - 23: {fileID: 1219079615}
-  - 114: {fileID: 1219079613}
   m_Layer: 0
   m_Name: QuadTemplate_g1e1
   m_TagString: Untagged
@@ -2705,17 +2680,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 0
---- !u!114 &1219079613
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1219079612}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a3d961c3725d9841b8b55e0f01cc68c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &1219079615
 Renderer:
   m_ObjectHideFlags: 0
@@ -3363,7 +3327,6 @@ GameObject:
   - 4: {fileID: 1695448296}
   - 33: {fileID: 1695448301}
   - 23: {fileID: 1695448299}
-  - 114: {fileID: 1695448297}
   m_Layer: 0
   m_Name: QuadTemplate_g2e3
   m_TagString: Untagged
@@ -3382,17 +3345,6 @@ Transform:
   m_LocalScale: {x: 6.6500001, y: 5, z: 5}
   m_Children: []
   m_Father: {fileID: 246234290}
---- !u!114 &1695448297
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1695448295}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a3d961c3725d9841b8b55e0f01cc68c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &1695448299
 Renderer:
   m_ObjectHideFlags: 0
@@ -3431,7 +3383,6 @@ GameObject:
   - 4: {fileID: 1712762956}
   - 33: {fileID: 1712762961}
   - 23: {fileID: 1712762959}
-  - 114: {fileID: 1712762957}
   m_Layer: 0
   m_Name: QuadTemplate_g2e2
   m_TagString: Untagged
@@ -3450,17 +3401,6 @@ Transform:
   m_LocalScale: {x: 6.6500001, y: 5, z: 5}
   m_Children: []
   m_Father: {fileID: 246234290}
---- !u!114 &1712762957
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1712762955}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a3d961c3725d9841b8b55e0f01cc68c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &1712762959
 Renderer:
   m_ObjectHideFlags: 0
@@ -3649,6 +3589,32 @@ Prefab:
   m_RootGameObject: {fileID: 1115516425}
   m_IsPrefabParent: 0
   m_IsExploded: 1
+--- !u!1 &1786885509
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1786885510}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1786885510
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1786885509}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 982.877441, y: -75.017334, z: 141.938599}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
 --- !u!1 &1816779220
 GameObject:
   m_ObjectHideFlags: 0
@@ -3920,7 +3886,6 @@ GameObject:
   - 4: {fileID: 2015404406}
   - 33: {fileID: 2015404411}
   - 23: {fileID: 2015404409}
-  - 114: {fileID: 2015404407}
   m_Layer: 0
   m_Name: QuadTemplate_g2e1
   m_TagString: Untagged
@@ -3939,17 +3904,6 @@ Transform:
   m_LocalScale: {x: 6.6500001, y: 5, z: 5}
   m_Children: []
   m_Father: {fileID: 246234290}
---- !u!114 &2015404407
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2015404405}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a3d961c3725d9841b8b55e0f01cc68c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &2015404409
 Renderer:
   m_ObjectHideFlags: 0
@@ -4356,7 +4310,6 @@ GameObject:
   - 4: {fileID: 2103519105}
   - 33: {fileID: 2103519110}
   - 23: {fileID: 2103519108}
-  - 114: {fileID: 2103519106}
   m_Layer: 0
   m_Name: QuadTemplate_g2e4
   m_TagString: Untagged
@@ -4375,17 +4328,6 @@ Transform:
   m_LocalScale: {x: 6.6500001, y: 5, z: 5}
   m_Children: []
   m_Father: {fileID: 246234290}
---- !u!114 &2103519106
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2103519104}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a3d961c3725d9841b8b55e0f01cc68c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &2103519108
 Renderer:
   m_ObjectHideFlags: 0
@@ -4511,7 +4453,7 @@ MonoBehaviour:
   - 100
   - 100
   - 100
-  applyFade: 0
+  applyFade: 1
   fadeCurveG1E1:
     serializedVersion: 2
     m_Curve:
