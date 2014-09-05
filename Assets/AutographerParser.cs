@@ -95,6 +95,7 @@ public class AutographerParser : MetadataParser {
 				dataItem.heading = float.Parse(csvData[columns.IndexOf("heading"), rowIndex]);
 				dataItem.priority = int.Parse(csvData[columns.IndexOf("priority"), rowIndex]);
 				dataItem.episode = int.Parse(csvData[columns.IndexOf("episode"), rowIndex]);
+				dataItem.height = float.Parse(csvData[columns.IndexOf("unity_height"), rowIndex]);
 				result.Add (dataItem);
 				//Debug.Log ("added row " + rowIndex + " of " + size);
 			}

@@ -84,6 +84,7 @@ public class MetaDataItem {
 	public float heading;
 	public int priority;
 	public int episode;
+	public float height;
 	
 	public override string ToString ()
 	{

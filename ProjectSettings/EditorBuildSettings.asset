@@ -5,11 +5,11 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/ParentScene.unity
-  - enabled: 0
-    path: Assets/Scenes/ArtisticScene.unity
-  - enabled: 0
-    path: Assets/Scenes/BrowserScene.unity
   - enabled: 1
+    path: Assets/Scenes/ParentScene.unity
+  - enabled: 1
+    path: Assets/Scenes/ArtisticScene.unity
+  - enabled: 1
+    path: Assets/Scenes/BrowserScene.unity
+  - enabled: 0
     path: Assets/Scenes/MobileScene.unity

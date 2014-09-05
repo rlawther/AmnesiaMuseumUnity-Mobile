@@ -104,8 +104,6 @@ public class Events
 			else if (Input.GetKey(KeyCode.Keypad4))
 				setOnlyActiveChild(mActiveNarrativeScenario, 4);
 		}
-		
-		
-		
+				
 	}
 }
