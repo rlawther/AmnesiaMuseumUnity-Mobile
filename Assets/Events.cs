@@ -50,6 +50,8 @@ public class Events
 	// Update is called once per frame
 	void Update () {
 	
+		RenderSettingsSetter rss;
+	
 		if (Input.GetKey("o"))
 		{
 			if (!mArtisticMode)
@@ -58,6 +60,8 @@ public class Events
 				mArtisticMode = true;
 				LoadLevels.artisticSceneParent.SetActive(true);
 				LoadLevels.browserSceneParent.SetActive(false);
+				rss = LoadLevels.artisticSceneParent.transform.Find("Scripts/BaseScripts").GetComponent<RenderSettingsSetter>();
+				rss.set();
 			}
 		}
 		else if (Input.GetKey("p"))
@@ -69,6 +73,8 @@ public class Events
 				
 				LoadLevels.artisticSceneParent.SetActive(false);
 				LoadLevels.browserSceneParent.SetActive(true);
+				rss = LoadLevels.browserSceneParent.transform.Find("Scripts/BaseScripts").GetComponent<RenderSettingsSetter>();
+				rss.set();
 			}
 		}
 		
@@ -98,8 +104,6 @@ public class Events
 			else if (Input.GetKey(KeyCode.Keypad4))
 				setOnlyActiveChild(mActiveNarrativeScenario, 4);
 		}
-		
-		
-		
+				
 	}
 }

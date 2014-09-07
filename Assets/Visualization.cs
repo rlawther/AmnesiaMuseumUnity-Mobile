@@ -51,6 +51,8 @@ public class Visualization : MonoBehaviour {
 	private const double m_per_deg_lat = 111132.954f;
 	private const double m_per_deg_lon = 111132.954f;
 	public bool tvisLayout = false;
+	
+	private bool writtenHeights = false;
 
 	void Start () {
 	
@@ -93,6 +95,20 @@ public class Visualization : MonoBehaviour {
 			this._rotationMethod = this.rotationMethod;
 			this.calculateQuadPositions();
 		}
+		
+		if ((!writtenHeights) && Input.GetKey ("h"))
+		{
+			writtenHeights = true;
+			Debug.Log ("print heights");
+			System.IO.StreamWriter file = new System.IO.StreamWriter("d:\\heights_" + csvMetadataFile.name + ".csv");
+			foreach (MetaDataItem mdi in this.targetMetadataParser.output) {
+				
+				file.WriteLine(mdi.transform.position.y + "," + mdi.filename);
+			}
+			file.Close();
+		}
+		
+		
 	}
 
 	protected void createQuads() {
@@ -147,24 +163,12 @@ public class Visualization : MonoBehaviour {
 				StartCoroutine(WaitForTexture(q,mdi));
 			}
 			mdi.material = q.renderer.material;
-			/*
-			if (mdi.priority <= 0)
-			{
-				q.renderer.enabled = false;
-			}
-			*/
-
 			q.transform.parent = getChildForEpisode(mdi.episode);
-			// make them big enough to see easily
-			//q.transform.localScale = new Vector3(5.0f * 1.33f, 5.0f, 5.0f);
 			/*
-			 * This is just used so you can see the position of the quads more easily
-			 * for debugging etc.
-			 *
-			q.transform.localScale = new Vector3(7.0f, 7.0f, 7.0f);
-			q.renderer.sharedMaterial = quadTemplate.renderer.material;
-			quadTemplate.renderer.material.color = Color.red;
-			*/
+			q.transform.position = new Vector3(q.transform.position.x,
+			                                   mdi.height,
+			                                   q.transform.position.z);
+			                            */
 			
 			mdi.transform = q.transform;
 			quadList[i] = q.transform;
@@ -233,7 +237,7 @@ public class Visualization : MonoBehaviour {
 			
 			Vector3 pos = q.localPosition;
 			pos.x = (float)((mdi.latitude - latitudeOrigin) * m_per_deg_lat);
-			pos.y = (float)((mdi.altitude - altitudeOrigin));
+			pos.y = (float)mdi.height;
 			pos.z = (float)((mdi.longitude - longitudeOrigin) * m_per_deg_lon);
 			pos.x *= -1;
 

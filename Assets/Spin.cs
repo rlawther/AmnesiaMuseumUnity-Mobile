@@ -15,6 +15,8 @@ public class Spin : MonoBehaviour {
 	private Vector3 offset;
 
 	public Joystick jstick;
+	
+	public Camera camera;
 
 	private float pinchDist;
 	private Vector2 oldTouchPos;
@@ -32,7 +34,7 @@ public class Spin : MonoBehaviour {
 	void Start () {
 		radius = 1000.0f;
 		ang = 0;
-		elevation = Mathf.PI / 2.0f;
+		elevation = 0.1f;
 		offset = new Vector3(0, 0, 0);
 
 		/*
@@ -142,8 +144,8 @@ public class Spin : MonoBehaviour {
 		z = radius * Mathf.Sin(ang) * Mathf.Sin(elevation);
 		y = radius * Mathf.Cos(elevation);
 
-		this.gameObject.transform.localPosition = new Vector3(x, y, z) + orbitAround.position + offset;
-		this.gameObject.transform.LookAt(orbitAround.position + offset);
+		camera.transform.localPosition = new Vector3(x, y, z) + orbitAround.position + offset;
+		camera.transform.LookAt(orbitAround.position + offset);
 
 		Kernys.Bson.BSONObject bsonObj = new Kernys.Bson.BSONObject();
 		bsonObj.Add ("x", jstick.position.x);
