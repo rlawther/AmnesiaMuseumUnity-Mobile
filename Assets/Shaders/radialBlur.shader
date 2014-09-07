@@ -1,64 +1,68 @@
-﻿// FakeRadialBlur shader for Unity (v1.0)
-// based on this shader: http://unitycoder.com/blog/2012/10/02/fake-godrays-shader/
-// which is converted/based on this webgl shader: http://demo.bkcore.com/threejs/webgl_tron_godrays.html
+﻿// Upgrade NOTE: replaced 'samplerRECT' with 'sampler2D'
+// Upgrade NOTE: replaced 'texRECT' with 'tex2D'
  
-Shader "UnityCoder/FakeRadialBlur"
-{
-Properties
-{
-tDiffuse ("Base (RGB)", 2D) = "white" {}
-fX ("fX", Float) = 0.5
-fY ("fY", Float) = 0.5
-fExposure ("fExposure", Float) = 0.6
-fDecay ("fDecay", Float) = 0.93
-fDensity ("fDensity", Float) = 0.96
-fWeight ("fWeight", Float) = 0.4
-fClamp ("fClamp", Float) = 1.0
-//iSamples ("iSamples", Int) = 20
-}
-SubShader {
-Tags { "RenderType"="Opaque" }
-LOD 200
-Cull Off
+    Shader "Hidden/radialBlur" {
+    Properties {
+        _MainTex ("Input", RECT) = "white" {}
+        _BlurStrength ("", Float) = 0.5
+        _BlurWidth ("", Float) = 0.5
+    }
+        SubShader {
+            Pass {
+                ZTest Always Cull Off ZWrite Off
+                Fog { Mode off }
  
-CGPROGRAM
-#pragma target 3.0
-#pragma surface surf Lambert
+        CGPROGRAM
+// Upgrade NOTE: excluded shader from DX11, Xbox360, OpenGL ES 2.0 because it uses unsized arrays
+#pragma exclude_renderers d3d11 xbox360 gles
+// Upgrade NOTE: excluded shader from Xbox360 and OpenGL ES 2.0 because it uses unsized arrays
+#pragma exclude_renderers xbox360 gles
  
-sampler2D tDiffuse;
-float fX,fY,fExposure,fDecay,fDensity,fWeight,fClamp,iSamples;
+        #pragma vertex vert_img
+        #pragma fragment frag
+        #pragma fragmentoption ARB_precision_hint_fastest
  
-struct Input {
-float2 uvtDiffuse;
-float4 screenPos;
-};
+        #include "UnityCG.cginc"
  
-void surf (Input IN, inout SurfaceOutput o)
-{
-int iSamples=100;
-float2 vUv = IN.uvtDiffuse;
-//vUv *= float2(1,1); // repeat?
-float2 deltaTextCoord = float2(vUv - float2(fX,fY));
-deltaTextCoord *= 1.0 /  float(iSamples) * fDensity;
-float2 coord = vUv;
-float illuminationDecay = 1.0;
-float4 FragColor = float4(0.0);
-for(int i=0; i &lt; iSamples ; i++)
-{
-coord -= deltaTextCoord;
-float4 texel = tex2D(tDiffuse, coord);
-texel *= illuminationDecay * fWeight;
-FragColor += texel;
-illuminationDecay *= fDecay;
-}
-FragColor *= fExposure;
-FragColor = clamp(FragColor, 0.0, fClamp);
-float4 c = FragColor;
-o.Albedo = c.rgb;
-o.Alpha = c.a;
+        uniform sampler2D _MainTex;
+        uniform half _BlurStrength;
+        uniform half _BlurWidth;
+        uniform half _iWidth;
+        uniform half _iHeight;
  
-}
-ENDCG
-}
-FallBack "Diffuse"
-}
+        half4 frag (v2f_img i) : COLOR {
+            half4 color = tex2D(_MainTex, i.uv);
+ 
+            // some sample positions
+            half samples[10] = half[](-0.08,-0.05,-0.03,-0.02,-0.01,0.01,0.02,0.03,0.05,0.08);
+ 
+            //vector to the middle of the screen
+            half2 dir = 0.5 * half2(_iHeight,_iWidth) - i.uv;
+ 
+            //distance to center
+            half dist = sqrt(dir.x*dir.x + dir.y*dir.y);
+ 
+            //normalize direction
+            dir = dir/dist;
+ 
+            //additional samples towards center of screen
+            half4 sum = color;
+            for(int n = 0; n < 10; n++)
+            {
+                sum += tex2D(_MainTex, i.uv + dir * samples[n] * _BlurWidth * _iWidth);
+            }
+ 
+            //eleven samples...
+            sum *= 1.0/11.0;
+ 
+            //weighten blur depending on distance to screen center
+            half t = dist * _BlurStrength / _iWidth;
+            t = clamp(t, 0.0, 1.0);
+ 
+            //blend original with blur
+            return lerp(color, sum, t);
+        }
+        ENDCG
+            }
+        }
+    }

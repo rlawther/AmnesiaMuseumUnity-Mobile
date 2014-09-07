@@ -2920,6 +2920,7 @@ Transform:
   - {fileID: 2133811015}
   - {fileID: 33691831}
   - {fileID: 1101322673}
+  - {fileID: 2087658493}
   m_Father: {fileID: 246234290}
   m_RootOrder: 9
 --- !u!1001 &1485960216
@@ -4134,6 +4135,76 @@ MeshFilter:
   m_PrefabInternal: {fileID: 981476771}
   m_GameObject: {fileID: 2053170871}
   m_Mesh: {fileID: 4300000, guid: 5bf15b8d4616240848b73ab175bba845, type: 3}
+--- !u!1 &2087658489
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 2087658493}
+  - 33: {fileID: 2087658492}
+  - 64: {fileID: 2087658491}
+  - 23: {fileID: 2087658490}
+  m_Layer: 0
+  m_Name: G2_SandTex
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!23 &2087658490
+Renderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2087658489}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 2100000, guid: ecdc6aab97d214d41802193990ccc39d, type: 2}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+--- !u!64 &2087658491
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2087658489}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_SmoothSphereCollisions: 0
+  m_Convex: 0
+  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!33 &2087658492
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2087658489}
+  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &2087658493
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2087658489}
+  m_LocalRotation: {x: .500775218, y: -.462387413, z: .365171641, w: .634091377}
+  m_LocalPosition: {x: 119.553123, y: 1.05999994, z: -165.225128}
+  m_LocalScale: {x: 2.22739506, y: 1.51868045, z: 5.06323242}
+  m_Children: []
+  m_Father: {fileID: 1438021461}
+  m_RootOrder: 14
 --- !u!1 &2087895466
 GameObject:
   m_ObjectHideFlags: 0
@@ -4559,9 +4630,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   applyBillboard: 0
   billboardRadius:
-  - 15
-  - 10
-  - 10
+  - 100
+  - 100
+  - 100
   - 100
   - 100
   - 100
@@ -4576,7 +4647,7 @@ MonoBehaviour:
       inSlope: .0286912061
       outSlope: .0286912061
       tangentMode: 0
-    - time: .223931193
+    - time: .401032239
       value: .999674082
       inSlope: .0595123395
       outSlope: .0595123395
@@ -4586,13 +4657,13 @@ MonoBehaviour:
   fadeCurveG1E2:
     serializedVersion: 2
     m_Curve:
-    - time: 0
-      value: -.0079741478
+    - time: .000689631968
+      value: .49755913
       inSlope: 0
       outSlope: 0
       tangentMode: 0
-    - time: .302338362
-      value: 1.00032449
+    - time: .200579852
+      value: 1.00380731
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -4606,8 +4677,8 @@ MonoBehaviour:
       inSlope: 0
       outSlope: 0
       tangentMode: 0
-    - time: .297428519
-      value: 1.00044942
+    - time: .401217341
+      value: .986637414
       inSlope: 0
       outSlope: 0
       tangentMode: 0
