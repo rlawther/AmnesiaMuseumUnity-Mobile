@@ -33,9 +33,8 @@ public class TCPAsyncListener : ThreadedClass {
 	public TCPAsyncListener(int port)
 	{
 		listenPort = port;
-		Debug.Log("Starting listener on port " + port);
-			
-		this.tcpListener = new TcpListener(IPAddress.Any, listenPort);	
+		
+		this.tcpListener = new TcpListener(IPAddress.Any, listenPort);			
         this.tcpListener.Start();
         Debug.Log("Started listener on port " + port);
 	}
@@ -90,6 +89,7 @@ public class TCPAsyncListener : ThreadedClass {
             
         }
         //Debug.Log("listener thread ending");
+		this.tcpListener.Stop();
 	}
 }
 }

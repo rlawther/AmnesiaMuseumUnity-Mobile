@@ -62,13 +62,14 @@
             float _HueShift;
             float _Sat;
             float _Val;
+            float4 _Color;
  
             half4 frag(v2f i) : COLOR
             {
                 half4 col = tex2D(_MainTex, i.uv);
                 float3 shift = float3(_HueShift, _Sat, _Val);
                
-                return half4( half3(shift_col(col, shift)), col.a);
+                return half4( half3(shift_col(col, shift)), _Color.a);
             }
             ENDCG
         }

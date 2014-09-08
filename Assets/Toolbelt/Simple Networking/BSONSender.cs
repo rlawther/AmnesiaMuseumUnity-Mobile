@@ -2,10 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-#if (UNITY_ANDROID == false)
 using Ionic.Zlib;
-#endif
-
 namespace Toolbelt {
 public class BSONSender {
 	
@@ -23,8 +20,6 @@ public class BSONSender {
 		tcpSender.StopThread();
 	}
 	
-	#if (UNITY_ANDROID == false)
-
 	/*
 	* Turns BSONObj into an array of bytes ready to transport.
 	* ---------------------------------------------------------
@@ -61,8 +56,7 @@ public class BSONSender {
 		tcpSender.AddMessage(a.ToArray());
 				
 	}
-	#endif
-
+	
 	/*
 	* Turns BSONObj into an array of bytes ready to transport.
 	* -------------------------------------------------
@@ -94,7 +88,7 @@ public class BSONSender {
 		tcpSender.AddMessage(a.ToArray());
 			
 	}
-
+	
 	private List<byte> intToByteString(int paramInt)
 	{
 		byte[] array = System.BitConverter.GetBytes(paramInt);
