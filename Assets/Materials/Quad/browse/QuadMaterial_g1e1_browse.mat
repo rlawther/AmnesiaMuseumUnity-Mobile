@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: QuadMaterial_g1e1_browse
-  m_Shader: {fileID: 4800000, guid: c2baf9a60b92bf644af47c34819bb2fb, type: 3}
+  m_Shader: {fileID: 4800000, guid: 9fab52b9a83be40ee9871842f3155f26, type: 3}
   m_ShaderKeywords: []
   m_CustomRenderQueue: -1
   m_SavedProperties:
@@ -48,6 +48,14 @@ Material:
         second: .5
       data:
         first:
+          name: _BlurStrength
+        second: .5
+      data:
+        first:
+          name: _BlurWidth
+        second: 2
+      data:
+        first:
           name: _Shininess
         second: .699999988
       data:
@@ -73,11 +81,11 @@ Material:
       data:
         first:
           name: _Sat
-        second: 2.23000002
+        second: 1.60000002
       data:
         first:
           name: _Val
-        second: 1.77999997
+        second: 1
       data:
         first:
           name: _Brightness
@@ -102,14 +110,6 @@ Material:
         first:
           name: _SepiaAmount
         second: .660714269
-      data:
-        first:
-          name: _BlurStrength
-        second: .5
-      data:
-        first:
-          name: _BlurWidth
-        second: 2
     m_Colors:
       data:
         first:
