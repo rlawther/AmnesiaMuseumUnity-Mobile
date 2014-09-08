@@ -1343,6 +1343,7 @@ Transform:
   m_LocalScale: {x: 1, y: .699999988, z: 1}
   m_Children:
   - {fileID: 1908528731}
+  - {fileID: 2087658493}
   m_Father: {fileID: 1438021461}
   m_RootOrder: 5
 --- !u!95 &824799972
@@ -2151,11 +2152,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1101322672}
   m_LocalRotation: {x: 0, y: -.707106888, z: 0, w: .707106769}
-  m_LocalPosition: {x: 140.586914, y: 6.69161654, z: -134.511215}
+  m_LocalPosition: {x: 24.2840042, y: 9.12054443, z: -32.1900024}
   m_LocalScale: {x: .200000003, y: 1.50999999, z: .200000003}
   m_Children: []
-  m_Father: {fileID: 1438021461}
-  m_RootOrder: 13
+  m_Father: {fileID: 1833313672}
+  m_RootOrder: 1
 --- !u!23 &1101322674
 Renderer:
   m_ObjectHideFlags: 0
@@ -2168,7 +2169,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 97051cdd5e2ec44ca99a927abbdb1b82, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -2919,8 +2920,6 @@ Transform:
   - {fileID: 1123191994}
   - {fileID: 2133811015}
   - {fileID: 33691831}
-  - {fileID: 1101322673}
-  - {fileID: 2087658493}
   m_Father: {fileID: 246234290}
   m_RootOrder: 9
 --- !u!1001 &1485960216
@@ -3779,6 +3778,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 18974326}
+  - {fileID: 1101322673}
   m_Father: {fileID: 1438021461}
   m_RootOrder: 1
 --- !u!95 &1833313673
@@ -4199,12 +4199,12 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2087658489}
-  m_LocalRotation: {x: .500775218, y: -.462387413, z: .365171641, w: .634091377}
-  m_LocalPosition: {x: 119.553123, y: 1.05999994, z: -165.225128}
-  m_LocalScale: {x: 2.22739506, y: 1.51868045, z: 5.06323242}
+  m_LocalRotation: {x: .500775218, y: -.462387383, z: .365171611, w: .634091258}
+  m_LocalPosition: {x: 3.25041199, y: 1.36640501, z: -62.9040985}
+  m_LocalScale: {x: 2.22739553, y: 1.55363679, z: 7.11664867}
   m_Children: []
-  m_Father: {fileID: 1438021461}
-  m_RootOrder: 14
+  m_Father: {fileID: 824799971}
+  m_RootOrder: 1
 --- !u!1 &2087895466
 GameObject:
   m_ObjectHideFlags: 0
