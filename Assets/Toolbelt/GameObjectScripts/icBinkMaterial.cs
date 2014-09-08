@@ -35,7 +35,6 @@ public class icBinkMaterial : icMaterial {
 		this.binkPlugin = bp;
 		
 		this._LoadMovie();
-
 	}
 
 	private void _LoadMovie()

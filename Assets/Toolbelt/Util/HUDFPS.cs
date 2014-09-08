@@ -27,7 +27,7 @@ public class HUDFPS : MonoBehaviour
 	private Color color = Color.white; // The color of the GUI, depending of the FPS ( R < 10, Y < 30, G >= 30 )
 	private string sFPS = ""; // The fps formatted into a string.
 	private GUIStyle style; // The style the text will be displayed at, based en defaultSkin.label.
- 
+	public bool show = true;
 	void Start()
 	{
 	    StartCoroutine( FPS() );
@@ -35,6 +35,9 @@ public class HUDFPS : MonoBehaviour
  
 	void Update()
 	{
+		if ((Input.GetKey(KeyCode.LeftControl) &&Input.GetKeyDown(KeyCode.F))) {
+			this.show = !this.show;
+		}
 	    accum += Time.timeScale/ Time.deltaTime;
 	    ++frames;
 	}
@@ -60,6 +63,7 @@ public class HUDFPS : MonoBehaviour
  
 	void OnGUI()
 	{
+		if (!this.show) return;
 		// Copy the default label skin, change the color and the alignement
 		if( style == null ){
 			style = new GUIStyle( GUI.skin.label );

@@ -38,10 +38,14 @@ public class BinkViewer : ToolbeltManager {
 		
 		Transform t = GameObject.Instantiate(this.sampleQuad)  as Transform;
 		t.gameObject.SetActive(true);
-		t.GetComponent<icBinkMaterial>().LoadMovie(binkFiles[currentIndex]);
+		
+		icBinkMaterial ibm = t.gameObject.AddComponent<icBinkMaterial>();
+		ibm.isGameSpeedAgnostic = true;
+		ibm.filePath = this.binkFiles[currentIndex];
+			
 		t.GetComponent<BinkPlayOptions>().movieSpeed = 1.0f;
 		this.currentQuad = t;
-		t.SetParent(this.sceneParent);
+		t.SetParent(this.transform);
 		
 	}
 }

@@ -1125,12 +1125,69 @@ namespace BinkInterface
 
     //Not yet implemented
     //#if !defined( __RAD3DS__ ) && !defined (__RADPS2__) || !defined( __RADNDS__ ) 
-
+#if USE_BINK2_x64
+	[DllImport("bink2w64")]
+#elif USE_BINK2
+	[DllImport("bink2w32")]
+#elif USE_BINK1_x64
+	[DllImport("binkw64")]
+#else //USE_BINK1
+	[DllImport("binkw32")]
+#endif
     //RADEXPFUNC S32 RADEXPLINK BinkStartAsyncThread( S32 thread_num, void const * param );
+	public static extern int BinkStartAsyncThread(int thread_num, IntPtr zero);
+    
+    
+#if USE_BINK2_x64
+	[DllImport("bink2w64")]
+#elif USE_BINK2
+	[DllImport("bink2w32")]
+#elif USE_BINK1_x64
+	[DllImport("binkw64")]
+#else //USE_BINK1
+	[DllImport("binkw32")]
+#endif	
     //RADEXPFUNC S32  RADEXPLINK BinkDoFrameAsync(HBINK bink, U32 yplane_thread_num, U32 other_work_thread_num );
+	public static extern int BinkDoFrameAsync(IntPtr bnk, uint yplane_thread_num, uint other_work_thread_num);
+
+#if USE_BINK2_x64
+	[DllImport("bink2w64")]
+#elif USE_BINK2
+	[DllImport("bink2w32")]
+#elif USE_BINK1_x64
+	[DllImport("binkw64")]
+#else //USE_BINK1
+	[DllImport("binkw32")]
+#endif	
     //RADEXPFUNC S32  RADEXPLINK BinkDoFrameAsyncWait(HBINK bink, S32 us);
+	public static extern int BinkDoFrameAsyncWait(IntPtr bink, int microseconds);
+	
+#if USE_BINK2_x64
+	[DllImport("bink2w64")]
+#elif USE_BINK2
+	[DllImport("bink2w32")]
+#elif USE_BINK1_x64
+	[DllImport("binkw64")]
+#else //USE_BINK1
+	[DllImport("binkw32")]
+#endif	
     //RADEXPFUNC S32 RADEXPLINK BinkRequestStopAsyncThread( S32 thread_num );
-    //RADEXPFUNC S32 RADEXPLINK BinkWaitStopAsyncThread( S32 thread_num );
+	public static extern int  BinkRequestStopAsyncThread( int thread_num );
+	
+	
+#if USE_BINK2_x64
+	[DllImport("bink2w64")]
+#elif USE_BINK2
+	[DllImport("bink2w32")]
+#elif USE_BINK1_x64
+	[DllImport("binkw64")]
+#else //USE_BINK1
+	[DllImport("binkw32")]
+#endif	
+		//RADEXPFUNC S32 RADEXPLINK BinkWaitStopAsyncThread( S32 thread_num );
+	public static extern int  BinkWaitStopAsyncThread( int thread_num );
+		
+    
 
     //#endif
 

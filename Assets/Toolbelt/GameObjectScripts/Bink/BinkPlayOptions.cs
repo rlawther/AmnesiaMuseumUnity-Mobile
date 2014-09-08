@@ -10,7 +10,7 @@ public class BinkPlayOptions : MonoBehaviour {
 	public float movieTime = 0f;	
 	public bool loopMovie = true; 
 	public bool canCatchup = false;	// render 2 frames when behind.
-	public bool smartRender = false; // Do not render whenever video is not visible
+	public bool smartRender = true; // Do not render whenever video is not visible
 	public float playSpeed = 1.0f; //temp variable so you can store what you want to play at
 	
 	// will not start playing until this is <= 0. Will only count down if movieSpeed > 0

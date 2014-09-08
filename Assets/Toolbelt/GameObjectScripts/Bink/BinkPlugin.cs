@@ -23,6 +23,10 @@ using Toolbelt;
 [DontStore]
 public class BinkPlugin : MonoBehaviour
 {
+	public const int NUM_THREADS = 4;
+	public int threadA;
+	public int threadB;
+	private static int currThread = 0;
 	private enum BinkPluginType
 	{
 		//Overlay draws after all other Unity rendering. It's best for FMV video, though you could do FMV video using a Texture too
@@ -414,6 +418,10 @@ public class BinkPlugin : MonoBehaviour
 	//Load a movie and add it to the playing movie list
 	public bool _LoadMovie (String name)
 	{		
+		this.threadA = BinkPlugin.currThread % BinkPlugin.NUM_THREADS;
+		currThread++;
+		this.threadB = BinkPlugin.currThread % BinkPlugin.NUM_THREADS;
+		currThread++;
 		
 		long flags = Bink.BINKALPHA;
 		switch (Type) {
@@ -653,8 +661,7 @@ public class BinkPlugin : MonoBehaviour
 			#if UNITY_WIN
 			Bink.BinkSoundUseDirectSound (0);
 			#endif
-	
-			BinkRenderQueueInitialize (1024, 4);
+			BinkRenderQueueInitialize(1024,NUM_THREADS);			
 					
 			BinkInitialized = true;  
 		}
@@ -821,50 +828,54 @@ public class BinkPlugin : MonoBehaviour
 			if (targetFrame == Movie.lastRenderedFrame) {
 				skip = true;				
 			}
-			
+
 			if (!BinkRenderOkToRender ()) {
 				skip = true;
 			}
-			if (!this.Movie.visible && this.SmartRender && Movie.lastRenderedFrame >= 0) {
+
+			
+      		if (!this.Movie.visible && this.SmartRender && Movie.lastRenderedFrame >= 0) {
 				//only render if visible, or if first frame of video.	
 				skip = true;				
 			}
-			
+
 			this.Movie.visible = false; //will be set to true if any camera can see it.
       
 			if (!skip) {				
 				BinkRenderRespondToReset (Movie.Bink, Movie.TextureSet, NativeYTexture, NativecBTexture, NativecRTexture, NativeATexture);
 
 				BinkRenderPreUpdate (Movie.Bink, Movie.TextureSet, NativeYTexture, NativecBTexture, NativecRTexture, NativeATexture);
+				//Bink.BinkSetWillLoop(Movie.Bink,1); //test me.
 				// Notify plugin we're about to update Bink
 				//
+				Bink.BinkDoFrameAsync(Movie.Bink,(uint)this.threadA,(uint)this.threadB);
+				Bink.BinkDoFrameAsyncWait(Movie.Bink,-1);
+        
+					
 				int frameDiff = ((int)targetFrame - Movie.currentFrame);
 				if (frameDiff < -1 || // We have already gone past the target frame. We must rewind 
-					frameDiff > this.getFrameRate (summary) * 0.5f) { // The target frame is after us, but by a significant amount so we should jump  								
+				    frameDiff > this.getFrameRate (summary) * 0.5f) { // The target frame is after us, but by a significant amount so we should jump  								
 					
 					Bink.BinkGoto (Movie.Bink, targetFrame, 0); 
 					Movie.currentFrame = (int)targetFrame;
 				}
-				
-					
+			
 				//
 				// Decompress a frame
 				//
-				Bink.BinkDoFrame (Movie.Bink);
+				
 				Movie.lastRenderedFrame = Movie.currentFrame;
 				Movie.currentFrame++;
 				Movie.needsBlit = true;
-//				if (CanCatchup && frameDiff == 1) {
-//					Bink.BinkNextFrame(Movie.Bink);
-//					Bink.BinkDoFrame(Movie.Bink);
-//					Movie.currentFrame++;
-//				}
-
 				//
 				// Keep playing the Movie.
 				//
 				Bink.BinkNextFrame (Movie.Bink);
+				//Bink.BinkDoFrameAsync(Movie.Bink,(uint)this.threadA,(uint)this.threadB);
+				
+			
 
+				//UnityEngine.Debug.Log ("woo?");
 				//
 				// Notify plugin we're done updating
 				//
@@ -873,8 +884,8 @@ public class BinkPlugin : MonoBehaviour
 			
 			
 #endif //BINK_QUEUE_TICK_MANUALLY
-
 			BinkRenderQueueAdd (Movie.Bink, Movie.TextureSet, tickAutomatically, Movie.BinkWidth, Movie.BinkHeight, (int)(Screen.width * xScale), (int)(Screen.height * yScale), XOffset, YOffset, xScale, yScale, 1.0f, 0, NativeYTexture, NativecBTexture, NativecRTexture, NativeATexture);
+			
 		}
 
 	}
@@ -951,57 +962,63 @@ public class BinkPlugin : MonoBehaviour
 			
 			if (bpo == null)
 				continue;
-				
-			if (bpo.playAfterSeconds > 0f && bpo.movieSpeed > 0f) {
-				// Simple delay before movie starts playing
-				bpo.playAfterSeconds -= this.getDeltaTime();
-			} else {
 			
+				
+			if (bpo.playAfterSeconds > 0f) {
+				if (bpo.movieSpeed > 0f) {
+					// Simple delay before movie starts playing
+					bpo.playAfterSeconds -= this.getDeltaTime();
+				}
+			} else {
 				bpo.movieTime += bpo.movieSpeed * this.getDeltaTime();
-	      
-				if (Type == BinkPluginType.Overlay ||
-					(Type == BinkPluginType.GPUTexture && !usingOpenGL())) {
-					CallPluginRenderLoop ();
-	
-					// Issue a plugin event with arbitrary integer identifier.
-					// The plugin can distinguish between different
-					// things it needs to do based on this ID.
-					// For our simple plugin, it does not matter which ID we pass here.
-					GL.IssuePluginEvent (1);
-				} else {
-					if (Movie.Bink != IntPtr.Zero) {
+	      	}
+	      	
+			// We want bink to render the first frame even if playAfterSeconds is still counting down,
+			// so everything below gets run regardless
+	      	
+			if (Type == BinkPluginType.Overlay ||
+				(Type == BinkPluginType.GPUTexture && !usingOpenGL())) {
+				CallPluginRenderLoop ();
+
+				// Issue a plugin event with arbitrary integer identifier.
+				// The plugin can distinguish between different
+				// things it needs to do based on this ID.
+				// For our simple plugin, it does not matter which ID we pass here.
+				GL.IssuePluginEvent (1);
+			} else {
+				if (Movie.Bink != IntPtr.Zero) {
+					//
+					// Notify plugin we're about to update Bink
+					//
+					Bink.BINKSUMMARY summary = new Bink.BINKSUMMARY ();
+					Bink.BinkGetSummary (Movie.Bink, ref summary);
+					if (Bink.BinkWait (Movie.Bink) == 0) {
+						BinkRenderPreUpdate (Movie.Bink, Movie.TextureSet, IntPtr.Zero, IntPtr.Zero, IntPtr.Zero, IntPtr.Zero);
+
 						//
-						// Notify plugin we're about to update Bink
+						// Decompress a frame
 						//
-						Bink.BINKSUMMARY summary = new Bink.BINKSUMMARY ();
-						Bink.BinkGetSummary (Movie.Bink, ref summary);
-						if (Bink.BinkWait (Movie.Bink) == 0) {
-							BinkRenderPreUpdate (Movie.Bink, Movie.TextureSet, IntPtr.Zero, IntPtr.Zero, IntPtr.Zero, IntPtr.Zero);
-	
-							//
-							// Decompress a frame
-							//
-							Bink.BinkDoFrame (Movie.Bink);
-							
-							//
-							// if we are falling behind, decompress an extra frame to catch up
-							//          
-							while (Bink.BinkShouldSkip(Movie.Bink) != 0) {
-								Bink.BinkNextFrame (Movie.Bink);
-								Bink.BinkDoFrame (Movie.Bink);
-							}
-							
-							BinkConvertToTexture (Movie);
-							
-							//
-							// Keep playing the Movie.
-							//
+						Bink.BinkDoFrame (Movie.Bink);
+						
+						//
+						// if we are falling behind, decompress an extra frame to catch up
+						//          
+						while (Bink.BinkShouldSkip(Movie.Bink) != 0) {
 							Bink.BinkNextFrame (Movie.Bink);
-							BinkRenderPostUpdate (Movie.Bink);
+							Bink.BinkDoFrame (Movie.Bink);
 						}
+						
+						BinkConvertToTexture (Movie);
+						
+						//
+						// Keep playing the Movie.
+						//
+						Bink.BinkNextFrame (Movie.Bink);
+						BinkRenderPostUpdate (Movie.Bink);
 					}
 				}
 			}
+			
 		}
 	}
 

@@ -73,10 +73,12 @@ public class InitialisationScript : MonoBehaviour, icDebugGUI, StereoCameraInter
 		TRIPLE_IG,
 		LEFT_BLANK,
 		BLANK_RIGHT,
-		LEFT_RIGHT}
+		LEFT_RIGHT,
+		TOP_BOTTOM
+	}
 	;
 
-	public DisplayConfigurations _displayConfiguraiton = DisplayConfigurations.MASTER;
+	public DisplayConfigurations _displayConfiguration = DisplayConfigurations.MASTER;
 	private DisplayConfigurations _internalDisplayConfiguration = DisplayConfigurations.MASTER;
 	protected StereoMode _currentEye;
 	
@@ -150,11 +152,11 @@ public class InitialisationScript : MonoBehaviour, icDebugGUI, StereoCameraInter
 		{
 			int toShow = ClusterManager.Instance.NumSlavesToShow;
 			if (toShow == 1) {
-				this._displayConfiguraiton = DisplayConfigurations.LEFT_RIGHT;
+				this._displayConfiguration = DisplayConfigurations.LEFT_RIGHT;
 			} else if (toShow == 2) {
-				this._displayConfiguraiton = DisplayConfigurations.DOUBLE_IG;
+				this._displayConfiguration = DisplayConfigurations.DOUBLE_IG;
 			} else if (toShow == 3) {
-				this._displayConfiguraiton = DisplayConfigurations.TRIPLE_IG;
+				this._displayConfiguration = DisplayConfigurations.TRIPLE_IG;
 			}
 		}
 		
@@ -232,12 +234,25 @@ public class InitialisationScript : MonoBehaviour, icDebugGUI, StereoCameraInter
 			leftProjector._orthographicCamera.camera.rect = new Rect (0, 0, 0.5f, 1.0f);
 			leftProjector._orthographicCamera.SetActive (true);
 			leftProjector.warpMeshObject.SetActive (true);
-
+			
 			ProjectorDescription rightProjector = _projectors [1];
 			rightProjector._orthographicCamera.camera.rect = new Rect (0.5f, 0, 0.5f, 1.0f);
 			rightProjector._orthographicCamera.SetActive (true);
 			rightProjector.warpMeshObject.SetActive (true);
-            
+			
+			_masterCamera.camera.enabled = false;
+		}else if (_internalDisplayConfiguration == DisplayConfigurations.TOP_BOTTOM) {
+			// There should only be two projectors per slave
+			ProjectorDescription leftProjector = _projectors [0];
+			leftProjector._orthographicCamera.camera.rect = new Rect (0, 0, 0.5f, 0.5f);
+			leftProjector._orthographicCamera.SetActive (true);
+			leftProjector.warpMeshObject.SetActive (true);
+			
+			ProjectorDescription rightProjector = _projectors [1];
+			rightProjector._orthographicCamera.camera.rect = new Rect (0, 0.5f, 0.5f, 0.5f);
+			rightProjector._orthographicCamera.SetActive (true);
+			rightProjector.warpMeshObject.SetActive (true);
+			
 			_masterCamera.camera.enabled = false;
 		} else if (_internalDisplayConfiguration == DisplayConfigurations.MULTI_VIEW) {
 			float screenWidth = 1.0f / 6.0f;
@@ -321,22 +336,32 @@ public class InitialisationScript : MonoBehaviour, icDebugGUI, StereoCameraInter
 	}
 	private bool isSlaveDisplayed(int projectorId) {
 		bool result = true;
-		if (!ClusterManager.Instance.IsMaster) {
+#if NO_CLUSTER
+#elif UNITY_EDITOR
+#else
+
+		if (icCluster.isMaster()) {
+			return false;
+		}
+#endif
+		
+		if (!icCluster.isMaster()) {
 			result = ((projectorId / 2) == ClusterManager.Instance.ClientID);
 		}
-		if (this._displayConfiguraiton == DisplayConfigurations.MULTI_VIEW) {
+		if (this._displayConfiguration == DisplayConfigurations.MULTI_VIEW) {
 			result = true;
 		}
-		if (this._displayConfiguraiton == DisplayConfigurations.DOUBLE_IG) {
+		if (this._displayConfiguration == DisplayConfigurations.DOUBLE_IG) {
 			result = ((projectorId / 2) == ClusterManager.Instance.ClientID) || 
 				((projectorId / 2) == ClusterManager.Instance.ClientID + 1);
 		}
-		if (this._displayConfiguraiton == DisplayConfigurations.TRIPLE_IG) {
+		if (this._displayConfiguration == DisplayConfigurations.TRIPLE_IG) {
 			result = (projectorId / 2 >= ClusterManager.Instance.ClientID && 
 			                  projectorId / 2 <= ClusterManager.Instance.ClientID + 2);
 		}
 		return result;
 	}
+	
     private bool ParseWarpMeshProjector(TextReader file) {
     	//returns if no entries remaining.
 		string line = file.ReadLine ();
@@ -494,7 +519,7 @@ public class InitialisationScript : MonoBehaviour, icDebugGUI, StereoCameraInter
 			// Display Configurations //
 			////////////////////////////
 			if (Input.GetKeyDown (KeyCode.F5)) {
-				this._displayConfiguraiton = DisplayConfigurations.MASTER;
+				this._displayConfiguration = DisplayConfigurations.MASTER;
 			} else if (Input.GetKeyDown (KeyCode.F6)) {
 	
 			} else if (Input.GetKeyDown (KeyCode.F7)) {
@@ -509,9 +534,9 @@ public class InitialisationScript : MonoBehaviour, icDebugGUI, StereoCameraInter
 		///////////////////////////////////////////////////
 		// Update the display configuration if necessary //
 		///////////////////////////////////////////////////
-		if (_displayConfiguraiton != _internalDisplayConfiguration) {
+		if (_displayConfiguration != _internalDisplayConfiguration) {
 			// Restart the render system
-			_internalDisplayConfiguration = _displayConfiguraiton;
+			_internalDisplayConfiguration = _displayConfiguration;
 			this.StartRenderSystem (); 
 		}
 

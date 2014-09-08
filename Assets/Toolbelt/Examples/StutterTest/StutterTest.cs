@@ -6,9 +6,15 @@ public class StutterTest : MonoBehaviour {
 	public Camera mainCamera;
 	public int delayAmount = 100000000;
 	
+	private bool isMaster = false;
+	
 	// Use this for initialization
 	void Start () {
 	
+#if NO_CLUSTER
+#elif
+		isMaster = ClusterNetwork.IsMasterOfCluster();
+#endif
 	}
 	
 	// Update is called once per frame
@@ -16,14 +22,19 @@ public class StutterTest : MonoBehaviour {
 	{
 		float dt = Time.deltaTime;
 		
-		if (mainCamera) {
-			Color bgColour = mainCamera.backgroundColor;
-			bgColour.r = (bgColour.r + dt*0.25f) % 0.5f;
-			bgColour.g = (bgColour.g + dt*0.05f) % 0.5f;
-			
-			mainCamera.backgroundColor = bgColour;
+		if (!isMaster) {
+			if (mainCamera) {
+				Color bgColour = mainCamera.backgroundColor;
+				bgColour.r = (bgColour.r + dt*0.25f) % 0.5f;
+				bgColour.g = (bgColour.g + dt*0.05f) % 0.5f;
+				
+				mainCamera.backgroundColor = bgColour;
+			}
+			DoDelay();
+		} else {
+
 		}
-		DoDelay();
+		
 	}
 	
 	private void DoDelay()

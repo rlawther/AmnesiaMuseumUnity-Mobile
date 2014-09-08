@@ -5,6 +5,9 @@ public class ActivateFPC : MonoBehaviour {
 
 	public GameObject fpc;
 	public GameObject baseScripts;
+	public GameObject AVIEPrefab;
+	public GameObject mainCamera;
+	public bool useAVIECamera;
 	
 	// Use this for initialization
 	void Start () {
@@ -20,7 +23,16 @@ public class ActivateFPC : MonoBehaviour {
 			fpc.SetActive(true);
 		if (GameObject.Find ("BaseScripts") == null)
 			baseScripts.SetActive(true);
-		
+
+		if (useAVIECamera) {
+			if (GameObject.Find ("AVIE Prefab") == null)
+				AVIEPrefab.SetActive (true);
+		}
+		else {
+			if (GameObject.Find ("Main Camera") == null)
+				mainCamera.SetActive (true);
+		}
+
 	
 	}
 	
