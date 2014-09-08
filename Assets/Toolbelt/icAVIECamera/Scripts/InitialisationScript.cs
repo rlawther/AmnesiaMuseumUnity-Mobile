@@ -27,7 +27,7 @@ public class InitialisationScript : MonoBehaviour, icDebugGUI, StereoCameraInter
 	[SerializeField]
 	private bool
 		InputEnabled = false;
-	[Range(1, 6)]
+	[Range(1, 12)]
 	public int
 		_numIGs = 6;
 	[Range(1, 16)]
