@@ -234,7 +234,7 @@ MonoBehaviour:
   renderRadius: 20
   renderHeight: 16
   _followCamera: {fileID: 0}
-  _displayConfiguraiton: 1
+  _displayConfiguration: 0
   isInitialized: 0
 --- !u!114 &11400002
 MonoBehaviour:
