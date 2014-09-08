@@ -11,23 +11,18 @@ public class BSONListener {
 	private const int HEADER_BIT_COMPRESS = 1 << 0;
 	private const int HEADER_BIT_JSONBSON = 1 << 1;
 	
-	private TCPAsyncListener mTcpListener;
-
-	private int mMsgOffset;
-	private bool mPartwayThroughMessage;
-	private byte[] mMsg;
+	private TCPAsyncListener tcpListener;
 	
 	// Use this for initialization
 	public BSONListener(int port)
     {
-		mTcpListener = new TCPAsyncListener(port);
-		mTcpListener.StartThread();
-		mPartwayThroughMessage = false;
+		tcpListener = new TCPAsyncListener(port);
+		tcpListener.StartThread();
 	}
 	
 	~BSONListener()
 	{
-		mTcpListener.StopThread();
+		tcpListener.StopThread();
 	}
 	
 	/*
@@ -46,69 +41,45 @@ public class BSONListener {
 	 */	
 	public Kernys.Bson.BSONObject Receive()
 	{
-        if (mTcpListener.GetMessageCount() == 0)
+        byte[] msg;
+
+        if (tcpListener.GetMessageCount() == 0)
         {
             return null;
         }
         else
         {
-			try
-			{
-    	        byte a;
-        	    int b;
-	            //int c;
-    	        byte [] compressedData;
-        	    byte [] uncompressedData;
-				int offset;
+            byte a;
+            int b;
+            //int c;
+            byte [] compressedData;
+            byte [] uncompressedData;
 
-				if (!mPartwayThroughMessage)
-				{
-					mMsgOffset = 0;	
-					mMsg = mTcpListener.GetMessage();
-				}
+            msg = tcpListener.GetMessage();
 
-				//Debug.Log ("Got message");
-				a = mMsg[mMsgOffset];
-				b = getInt(mMsg, mMsgOffset + 1);
-        	    //c = getInt(msg, 5);
+            a = msg[0];
+            b = getInt(msg, 1);
+            //c = getInt(msg, 5);
 
-	            if ((a & HEADER_BIT_COMPRESS) != 0)
-    	        {
-        	        //Debug.Log("Compressed " + b);
-            	    compressedData = new byte [b - 4];
-					Array.Copy(mMsg, mMsgOffset + 9, compressedData, 0, b - 4);
-    	            uncompressedData = ZlibStream.UncompressBuffer(compressedData);
-        	    }
-            	else
-            	{
-	                //Debug.Log("Not Compressed");
-    	            uncompressedData = new byte [b];
-					Array.Copy(mMsg, mMsgOffset + 5, uncompressedData, 0, b);
-					//Debug.Log("msg len : " + b + ", " + mMsg.Length + ", " + mMsgOffset);
-            	}            
-            	Kernys.Bson.BSONObject obj = Kernys.Bson.SimpleBSON.Load(uncompressedData);
+			/* FIXME : assumes exactly one BSON object per packet - can't do this */
 
-				/* The current message is (b + 5) bytes long */
-				if ((mMsgOffset + b + 5) < mMsg.Length)
-				{
-					mPartwayThroughMessage = true;
-					mMsgOffset += b + 5;
-				}
-				else
-				{
-					mPartwayThroughMessage = false;
-					mMsgOffset = 0;
-				}
+            if ((a & HEADER_BIT_COMPRESS) != 0)
+            {
+                //Debug.Log("Compressed");
+                compressedData = new byte [b - 4];
+                Array.Copy(msg, 9, compressedData, 0, b - 4);
+                uncompressedData = ZlibStream.UncompressBuffer(compressedData);
+            }
+            else
+            {
+                //Debug.Log("Not Compressed");
+                uncompressedData = new byte [b];
+                Array.Copy(msg, 5, uncompressedData, 0, b);
+            }            
+            Kernys.Bson.BSONObject obj = Kernys.Bson.SimpleBSON.Load(uncompressedData);
 
-            	return obj;
-			}
-			catch
-			{
-				Debug.Log ("ERROR parsing BSON packets - will skip this packet");
-				mPartwayThroughMessage = false;
-				mMsgOffset = 0;
-				return null;
-			}
+
+            return obj;
         }
 
 	}
