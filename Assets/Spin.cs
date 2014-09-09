@@ -267,6 +267,7 @@ public class Spin : MonoBehaviour {
 		GUI.Label(new Rect(Screen.width - 200,120,280,20), "Cam angle x: " + camera.transform.rotation.eulerAngles.x);
 		GUI.Label(new Rect(Screen.width - 200,150,280,20), "Tap count: " + tapCount);
 		GUI.Label(new Rect(Screen.width - 200,180,280,20), "D: " + debug);
+		GUI.Label(new Rect(Screen.width - 200,210,280,20), playerDisplay.transform.position.x + ", " + playerDisplay.transform.position.z);
 
 	}
 
