@@ -366,6 +366,7 @@ Transform:
   - {fileID: 2108953008}
   - {fileID: 1438021461}
   - {fileID: 1148314557}
+  - {fileID: 1019359617}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!1001 &356131668
@@ -1158,7 +1159,7 @@ MeshCollider:
   m_GameObject: {fileID: 824799970}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_SmoothSphereCollisions: 0
   m_Convex: 0
@@ -1702,6 +1703,75 @@ Prefab:
   m_RootGameObject: {fileID: 777287020}
   m_IsPrefabParent: 0
   m_IsExploded: 1
+--- !u!1 &1019359616
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1019359617}
+  - 33: {fileID: 1019359620}
+  - 65: {fileID: 1019359619}
+  - 23: {fileID: 1019359618}
+  m_Layer: 0
+  m_Name: PlayerDisplay
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1019359617
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1019359616}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 995.762939, y: -71.2190704, z: 222.599365}
+  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_Children: []
+  m_Father: {fileID: 246234290}
+  m_RootOrder: 19
+--- !u!23 &1019359618
+Renderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1019359616}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 2100000, guid: 03c1bb433bf4f124994dfd3cc4040da9, type: 2}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+--- !u!65 &1019359619
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1019359616}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &1019359620
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1019359616}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1001 &1035465553
 Prefab:
   m_ObjectHideFlags: 0
@@ -2243,8 +2313,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1305355263}
-  m_LocalRotation: {x: .597135305, y: 0, z: 0, w: .802140534}
-  m_LocalPosition: {x: 1083.73926, y: 583.898193, z: 1.65112305}
+  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106829}
+  m_LocalPosition: {x: 1083.73926, y: 600, z: 185.919998}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 246234290}
@@ -2612,8 +2682,8 @@ Renderer:
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
   - {fileID: 2100000, guid: 6d05c47935d6d42fca19a79d5bc4d630, type: 2}
-  - {fileID: 2100000, guid: 81be8ce469b56479092c1c561e1d8b70, type: 2}
-  - {fileID: 2100000, guid: a2f6db417fc1c4db5a4d6edd9154ac14, type: 2}
+  - {fileID: 2100000, guid: a5c17af91bbcd8e47895424f2d9b4a03, type: 2}
+  - {fileID: 2100000, guid: 78067d23aa71ee24ca66b3226f3cbeac, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -3669,14 +3739,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ff45c6370bd52459a98912a3ec0d44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  remoteHost: 192.168.1.103
-  remotePort: 5559
+  remoteHost: 10.0.16.20
+  remotePort: 5551
   rotateSpeed: 10
+  sensitivityMove: 8
   sensitivityRotate: .100000001
   sensitivityElevate: .100000001
+  camMaxHeight: 1000
+  camMinHeight: 50
   orbitAround: {fileID: 824799971}
   jstick: {fileID: 742926018}
-  camera: {fileID: 0}
+  camera: {fileID: 1305355267}
+  playerDisplay: {fileID: 1019359616}
 --- !u!114 &2108953010
 MonoBehaviour:
   m_ObjectHideFlags: 0

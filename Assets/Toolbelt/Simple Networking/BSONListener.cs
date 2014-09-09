@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 
-using Ionic.Zlib;
 namespace Toolbelt {
 
 public class BSONListener {
@@ -65,10 +64,8 @@ public class BSONListener {
 
             if ((a & HEADER_BIT_COMPRESS) != 0)
             {
-                //Debug.Log("Compressed");
-                compressedData = new byte [b - 4];
-                Array.Copy(msg, 9, compressedData, 0, b - 4);
-                uncompressedData = ZlibStream.UncompressBuffer(compressedData);
+                Debug.Log("Compressed packet - skipping (Android can't use zlib DLL)");
+				return null;
             }
             else
             {

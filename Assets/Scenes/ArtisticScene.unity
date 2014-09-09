@@ -1012,7 +1012,7 @@ MonoBehaviour:
   tvisLayout: 0
   datasets:
   - csvMetadataFile: {fileID: 4900000, guid: 66c7a687bf9bdde4a9b9b553628b7e49, type: 3}
-    imageDirectory: /Volumes/Data/Users/z3050550/Documents/Amnesia/MEDIA/G1_img_sml
+    imageDirectory: C:\Media\Amnesia\G1_img_sml
     imageExtension: 
     quadTemplates:
     - {fileID: 756495611}
@@ -1020,7 +1020,7 @@ MonoBehaviour:
     - {fileID: 378943865}
     - {fileID: 1383771421}
   - csvMetadataFile: {fileID: 4900000, guid: e66b38e1b1e071c42bedfc12e5be0a4a, type: 3}
-    imageDirectory: /Volumes/Data/Users/z3050550/Documents/Amnesia/MEDIA/G2_img_sml
+    imageDirectory: C:\Media\Amnesia\G2_img_sml
     imageExtension: 
     quadTemplates:
     - {fileID: 803741280}

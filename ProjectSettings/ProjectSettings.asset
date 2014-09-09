@@ -152,7 +152,8 @@ PlayerSettings:
   flashStrippingLevel: 2
   spritePackerPolicy: 
   scriptingDefineSymbols:
-    1: NO_CLUSTER
+    1: NO_CLUSTER;a
+    7: NO_CLUSTER
   metroPackageName: AmnesiaMusuemVisualizer
   metroPackageLogo: 
   metroPackageLogo140: 

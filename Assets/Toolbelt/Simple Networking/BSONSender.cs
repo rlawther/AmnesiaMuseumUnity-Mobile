@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 
-using Ionic.Zlib;
 namespace Toolbelt {
 public class BSONSender {
 	
@@ -20,42 +19,6 @@ public class BSONSender {
 		tcpSender.StopThread();
 	}
 	
-	/*
-	* Turns BSONObj into an array of bytes ready to transport.
-	* ---------------------------------------------------------
-	* | a |   b   |   c   |         d                         |
-	* ---------------------------------------------------------
-	* d => compressed data
-	* c => length of uncompressed data
-	* b => length of c + compressed data (aka compressed data + 4)
-	* a => 1 byte header
-	*
-	*/	
-	public void Send(Kernys.Bson.BSONObject bsonObj)
-	{
-		byte[] raw = Kernys.Bson.SimpleBSON.Dump(bsonObj);
-		byte[] compressed = ZlibStream.CompressBuffer(raw);
-		
-		List<byte> c = intToByteString(raw.Length);
-		c.AddRange(compressed);
-		
-		
-		List<byte> b = intToByteString(c.Count);
-		b.AddRange(c);
-		
-		List<byte> a = new List<byte>();
-		a.Add(3);
-		a.AddRange(b);
-		
-//		string deb = "";
-//		foreach (byte oneB in a) {
-//			deb += oneB + " ";
-//		}
-//		Debug.Log (deb);
-		
-		tcpSender.AddMessage(a.ToArray());
-				
-	}
 	
 	/*
 	* Turns BSONObj into an array of bytes ready to transport.
