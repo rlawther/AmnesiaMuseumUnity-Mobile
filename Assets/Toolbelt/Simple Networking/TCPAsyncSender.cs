@@ -47,6 +47,8 @@ public class TCPAsyncSender : ThreadedClass {
 		Debug.Log ("Connected to " + remoteString);
 		
 		NetworkStream clientStream = tcpClient.GetStream();
+		Socket sock = tcpClient.Client;
+		sock.NoDelay = true;
 		
 		// Will keep running until told to stop
 		while (!this.stopRequested)
