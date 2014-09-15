@@ -37,6 +37,7 @@ public class Spin : MonoBehaviour {
 	private int tapCount = 0;
 	private string debug = "";
 	public GameObject playerDisplay;
+	private bool touchStarted = false;
 
 	// Use this for initialization
 	void Start () {
@@ -76,6 +77,16 @@ public class Spin : MonoBehaviour {
 			if (touch.phase == TouchPhase.Began)
 			{
 				touchMoved = false;
+				/*
+				 * We make some "dead zones" near the buttons at the top of the screen and around the joystick
+				 * Touch events cannot start in these regions
+				 */
+				if ((touch.position.y > 1400) || ((touch.position.x > 1920) && (touch.position.y < 528)))
+					touchStarted = false;
+				else
+					touchStarted = true;
+
+				Debug.Log ("Touch start " + touch.position.x + ", " + touch.position.y);
 			}
 			else if (touch.phase == TouchPhase.Moved)
 			{
@@ -90,17 +101,20 @@ public class Spin : MonoBehaviour {
 				else if (elevation > (Mathf.PI / 2.0f))
 					elevation = Mathf.PI / 2.0f;
 				*/
-				moveAmount = sensitivityMove * (camera.transform.position.y / camMaxHeight);
-				cameraPos = camera.transform.position;
-				cameraPos -= (touch.deltaPosition.x * moveAmount) * Vector3.right;
-				cameraPos -= (touch.deltaPosition.y * moveAmount) * Vector3.forward;
-				camera.transform.position = cameraPos;
+				if (touchStarted)
+				{
+					moveAmount = sensitivityMove * (camera.transform.position.y / camMaxHeight);
+					cameraPos = camera.transform.position;
+					cameraPos -= (touch.deltaPosition.x * moveAmount) * Vector3.right;
+					cameraPos -= (touch.deltaPosition.y * moveAmount) * Vector3.forward;
+					camera.transform.position = cameraPos;
+				}
 				touchMoved = true;
 			}
 			else if (touch.phase == TouchPhase.Ended)
 			{
 				// this is a click
-				if (!touchMoved)
+				if (touchStarted && !touchMoved)
 				{
 					RaycastHit hitInfo;
 					debug = "x";
@@ -125,7 +139,9 @@ public class Spin : MonoBehaviour {
 					bsonSender.SendUncompressed(bsonObj);
 					*/
 				}
+				touchStarted = false;
 			}
+
 		} 
 		else if (Input.touchCount == 2)
 		{
@@ -234,10 +250,10 @@ public class Spin : MonoBehaviour {
 
 	void OnGUI () {
 		// Make a background box
-		GUI.Box(new Rect(10,10,300,260), "Menu");
+		GUI.Box(new Rect(10,60,300,260), "Menu");
 		
 		// Make the first button. If it is pressed, Application.Loadlevel (1) will be executed
-		if(GUI.Button(new Rect(20,40,280,100), "Realistic")) {
+		if(GUI.Button(new Rect(20,90,280,100), "Realistic")) {
 			Kernys.Bson.BSONObject bsonObj = new Kernys.Bson.BSONObject();
 			bsonObj.Add ("button", "realistic");
 			bsonSender.SendUncompressed(bsonObj);
@@ -245,29 +261,30 @@ public class Spin : MonoBehaviour {
 		}
 		
 		// Make the second button.
-		if(GUI.Button(new Rect(20,150,280,100), "Artistic")) {
+		if(GUI.Button(new Rect(20,200,280,100), "Artistic")) {
 			Kernys.Bson.BSONObject bsonObj = new Kernys.Bson.BSONObject();
 			bsonObj.Add ("button", "artistic");
 			bsonSender.SendUncompressed(bsonObj);
 			//Application.LoadLevel(2);
 		}
 
-		if(GUI.Button(new Rect(20,260,280,100), "Reconnect")) {
+		if(GUI.Button(new Rect(20,310,280,100), "Reconnect")) {
 			bsonSender = new BSONSender(remoteHost, remotePort);
 		}
 
-		if(GUI.Button(new Rect(20,370,280,100), "RemotePort++")) {
+		if(GUI.Button(new Rect(20,420,280,100), "RemotePort++")) {
 			remotePort++;
 		}
 
-		GUI.Box(new Rect(Screen.width - 220,10,200,260), "Info");
-		GUI.Label(new Rect(Screen.width - 200,30,280,20), "Host : " + remoteHost);
-		GUI.Label(new Rect(Screen.width - 200,60,280,20), "Port : " + remotePort);
-		GUI.Label(new Rect(Screen.width - 200,90,280,20), "Cam height : " + camera.transform.position.y);
-		GUI.Label(new Rect(Screen.width - 200,120,280,20), "Cam angle x: " + camera.transform.rotation.eulerAngles.x);
-		GUI.Label(new Rect(Screen.width - 200,150,280,20), "Tap count: " + tapCount);
-		GUI.Label(new Rect(Screen.width - 200,180,280,20), "D: " + debug);
-		GUI.Label(new Rect(Screen.width - 200,210,280,20), playerDisplay.transform.position.x + ", " + playerDisplay.transform.position.z);
+		int i = 50;
+		GUI.Box(new Rect(Screen.width - 220,i + 10,200,260), "Info");
+		GUI.Label(new Rect(Screen.width - 200,i + 30,280,20), "Host : " + remoteHost);
+		GUI.Label(new Rect(Screen.width - 200,i + 60,280,20), "Port : " + remotePort);
+		GUI.Label(new Rect(Screen.width - 200,i + 90,280,20), "Cam height : " + camera.transform.position.y);
+		GUI.Label(new Rect(Screen.width - 200,i + 120,280,20), "Cam angle x: " + camera.transform.rotation.eulerAngles.x);
+		GUI.Label(new Rect(Screen.width - 200,i + 150,280,20), "Tap count: " + tapCount);
+		GUI.Label(new Rect(Screen.width - 200,i + 180,280,20), "D: " + debug);
+		GUI.Label(new Rect(Screen.width - 200,i + 210,280,20), playerDisplay.transform.position.x + ", " + playerDisplay.transform.position.z);
 
 	}
 
