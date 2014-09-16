@@ -81,7 +81,7 @@ public class Spin : MonoBehaviour {
 				 * We make some "dead zones" near the buttons at the top of the screen and around the joystick
 				 * Touch events cannot start in these regions
 				 */
-				if ((touch.position.y > 1400) || ((touch.position.x > 1920) && (touch.position.y < 528)))
+				if ((touch.position.y > 1300) || ((touch.position.x > 1920) && (touch.position.y < 528)))
 					touchStarted = false;
 				else
 					touchStarted = true;
