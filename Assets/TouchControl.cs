@@ -89,9 +89,12 @@ public class TouchControl : MonoBehaviour {
 				touchStartPos = touch.position;
 				/*
 				 * We make some "dead zones" near the buttons at the top of the screen and around the joystick
+				 * and on the left hand side of the screen to avoid thumb presses
 				 * Touch events cannot start in these regions
 				 */
-				if ((touch.position.y > 1300) || ((touch.position.x > 1920) && (touch.position.y < 528)))
+				if ((touch.position.y > 1300) ||
+				    ((touch.position.x > 1920) && (touch.position.y < 528)) ||
+				    (touch.position.x < 300))
 					touchStarted = false;
 				else
 					touchStarted = true;
