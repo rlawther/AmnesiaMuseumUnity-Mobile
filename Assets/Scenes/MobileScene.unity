@@ -5188,11 +5188,11 @@ GameObject:
   m_Component:
   - 4: {fileID: 2108953008}
   - 114: {fileID: 2108953014}
-  - 114: {fileID: 2108953015}
   - 114: {fileID: 2108953009}
   - 114: {fileID: 2108953010}
   - 114: {fileID: 2108953011}
   - 114: {fileID: 2108953012}
+  - 114: {fileID: 2108953013}
   m_Layer: 0
   m_Name: Scripts
   m_TagString: Untagged
@@ -5283,6 +5283,19 @@ MonoBehaviour:
   allowDrag: 1
   frequency: .5
   nbDecimal: 1
+--- !u!114 &2108953013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2108953007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d349dd0a720d6d428d6c65ae5428b23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  remoteHost: localhost
+  remotePort: 3338
 --- !u!114 &2108953014
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5316,54 +5329,3 @@ MonoBehaviour:
   visualizations: []
   currentlySelectedVis: 0
   lineMaterial: {fileID: 2100000, guid: ed7a07c7e00e24e258ff18b53637dad7, type: 2}
---- !u!114 &2108953015
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2108953007}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b590e962b708dae47bcc12987cdd6ce6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  applyBillboard: 1
-  billboardRadius: []
-  applyFade: 1
-  fadeCurve: []
-  fadeCurveG1E1:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  fadeCurveG1E2:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  fadeCurveG1E3:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  fadeCurveG2E1:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  fadeCurveG2E2:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  fadeCurveG2E3:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  fadeCurveG2E4:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  fadeDistanceMultiplier: 100

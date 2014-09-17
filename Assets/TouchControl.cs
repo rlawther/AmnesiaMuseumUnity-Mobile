@@ -46,6 +46,8 @@ public class TouchControl : MonoBehaviour {
 	private Vector2 lastClickPos;
 	private float lastClickTime;
 
+	private BSONComms bsonComms;
+
 
 	// Use this for initialization
 	void Start () {
@@ -59,12 +61,15 @@ public class TouchControl : MonoBehaviour {
 		tcpSender.StartThread();
 		tcpSender.AddMessage(testMsg);
 		*/
-
+		/*
 		Kernys.Bson.BSONObject bsonObj = new Kernys.Bson.BSONObject();
 		bsonObj.Add ("test", "hello");
 
 		bsonSender = new BSONSender(remoteHost, remotePort);
 		bsonSender.SendUncompressed(bsonObj);
+		*/
+
+		bsonComms = GetComponent<BSONComms> ();
 
 	}
 
@@ -252,17 +257,17 @@ public class TouchControl : MonoBehaviour {
 		//camera.transform.LookAt(orbitAround.position + offset);
 
 		Kernys.Bson.BSONObject bsonObj = new Kernys.Bson.BSONObject();
-		bsonObj.Add ("x", jstick.position.x);
-		bsonObj.Add ("y", jstick.position.y);
+		bsonComms.addData ("x", jstick.position.x);
+		bsonComms.addData ("y", jstick.position.y);
 		if (tapMove)
 		{
 			Debug.Log ("sending MOVE msg");
-			bsonObj.Add ("movex", tapMovePos.x);
-			bsonObj.Add ("movey", tapMovePos.y);
-			bsonObj.Add ("movez", tapMovePos.z);
+			bsonComms.addData ("movex", tapMovePos.x);
+			bsonComms.addData ("movey", tapMovePos.y);
+			bsonComms.addData ("movez", tapMovePos.z);
 			Debug.Log ("sent MOVE msg");
 		}
-		bsonSender.SendUncompressed(bsonObj);
+		//bsonSender.SendUncompressed(bsonObj);
 
 	}
 	/*

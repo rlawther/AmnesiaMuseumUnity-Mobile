@@ -24,7 +24,9 @@ public class GUIScript : MonoBehaviour
 	private GameObject photoParent;
 	
 	private GameObject [] paths;
-	
+
+	private BSONComms bsonComms;
+
 	void findPaths(GameObject parent)
 	{
 		int i = 0;
@@ -43,32 +45,30 @@ public class GUIScript : MonoBehaviour
 		Debug.Log ("toggling path " + index);
 		if (paths[index].activeSelf)
 		{
-			paths[index].SetActive(false);
-			setAlpha (guiPaths[index], alpha);
-			setAlphaTex (guiPathRings[index], 0.0f);
+			setPathActive(index, false);
 		}
 		else
 		{
-			paths[index].SetActive(true);
-			setAlpha (guiPaths[index], 1.0f);
-			setAlphaTex (guiPathRings[index], 0.3f);
+			setPathActive(index, true);
 		}
 	}
 
 	void setPathActive(int index, bool active)
 	{
 		Debug.Log ("setActive path " + index + " to " + active);
+		paths[index].SetActive(active);
+
 		if (!active)
 		{
-			paths[index].SetActive(false);
 			setAlpha (guiPaths[index], alpha);
 			setAlphaTex (guiPathRings[index], 0.0f);
+			bsonComms.addData ("path" + index, 0);
 		}
 		else
 		{
-			paths[index].SetActive(true);
 			setAlpha (guiPaths[index], 1.0f);
 			setAlphaTex (guiPathRings[index], 0.3f);
+			bsonComms.addData ("path" + index, 1);
 		}
 	}
 
@@ -82,6 +82,8 @@ public class GUIScript : MonoBehaviour
 		cameraOriginalRotation = camera.transform.rotation;
 
 		paths = new GameObject[6];
+		bsonComms = GameObject.Find ("Scripts").GetComponent<BSONComms> ();
+
 	}
 	
 
