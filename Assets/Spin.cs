@@ -247,7 +247,7 @@ public class Spin : MonoBehaviour {
 		bsonSender.SendUncompressed(bsonObj);
 
 	}
-
+	/*
 	void OnGUI () {
 		// Make a background box
 		GUI.Box(new Rect(10,60,300,260), "Menu");
@@ -287,5 +287,6 @@ public class Spin : MonoBehaviour {
 		GUI.Label(new Rect(Screen.width - 200,i + 210,280,20), playerDisplay.transform.position.x + ", " + playerDisplay.transform.position.z);
 
 	}
+	*/
 
 }

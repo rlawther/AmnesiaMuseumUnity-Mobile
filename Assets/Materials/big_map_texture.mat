@@ -6,8 +6,8 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: lp_restaurant_art_mat
-  m_Shader: {fileID: 7, guid: 0000000000000000f000000000000000, type: 0}
+  m_Name: big_map_texture
+  m_Shader: {fileID: 4800000, guid: c2baf9a60b92bf644af47c34819bb2fb, type: 3}
   m_ShaderKeywords: []
   m_CustomRenderQueue: -1
   m_SavedProperties:
@@ -17,12 +17,19 @@ Material:
         first:
           name: _MainTex
         second:
-          m_Texture: {fileID: 2800000, guid: 9defff98f92974d05a816ecd7356816e, type: 3}
+          m_Texture: {fileID: 2800000, guid: 05ac4dd6059d241c1a22ff4858400d0b, type: 3}
           m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _Detail
+        second:
+          m_Texture: {fileID: 2800000, guid: 26c71ae422dad6d419ad351ffda77ca6, type: 3}
+          m_Scale: {x: 100, y: 100}
           m_Offset: {x: 0, y: 0}
     m_Floats: {}
     m_Colors:
       data:
         first:
           name: _Color
-        second: {r: 1, g: 1, b: 1, a: 1}
+        second: {r: .191176474, g: .191176474, b: .191176474, a: 1}
