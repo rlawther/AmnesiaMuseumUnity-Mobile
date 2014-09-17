@@ -54,11 +54,18 @@ function Start()
 	// Store the default rect for the gui, so we can snap back to it
 	defaultRect = gui.pixelInset;	
     
-    defaultRect.x += transform.position.x * Screen.width;// + gui.pixelInset.x; // -  Screen.width * 0.5;
-    defaultRect.y += transform.position.y * Screen.height;// - Screen.height * 0.5;
+    /* Calculate the pixel offset values from the position and scale */
+    defaultRect.width = transform.localScale.x * Screen.width;
+    defaultRect.height = transform.localScale.y * Screen.height;
+    
+    defaultRect.x = (transform.position.x * Screen.width) - (defaultRect.width / 2.0f);
+    defaultRect.y = (transform.position.y * Screen.height) - (defaultRect.height / 2.0f);
+    
     
     transform.position.x = 0.0;
     transform.position.y = 0.0;
+    transform.localScale.x = 0.0;
+    transform.localScale.y = 0.0;
         
 	if ( touchPad )
 	{
