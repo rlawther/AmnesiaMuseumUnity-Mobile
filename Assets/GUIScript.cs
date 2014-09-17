@@ -46,13 +46,17 @@ public class GUIScript : MonoBehaviour
 		if (paths[index].activeSelf)
 		{
 			paths[index].SetActive(false);
+			setAlpha (guiPaths[index], alpha);
+			setAlphaTex (guiPathRings[index], 0.0f);
 		}
 		else
 		{
 			paths[index].SetActive(true);
+			setAlpha (guiPaths[index], 1.0f);
+			setAlphaTex (guiPathRings[index], 0.3f);
 		}
 	}
-
+	
 	void Start() 
 	{
 		setAlpha(ModeMem, alpha);
@@ -190,7 +194,6 @@ public class GUIScript : MonoBehaviour
 			{
 				if (button == guiPaths [i]) {
 					togglePathActive(i);
-					setAlphaTex (guiPathRings[i], 0.3f);
 				}
 			}
 		}
