@@ -537,6 +537,7 @@ Transform:
   - {fileID: 1148314557}
   - {fileID: 1019359617}
   - {fileID: 742926017}
+  - {fileID: 1377584681}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!1 &272487819
@@ -828,6 +829,10 @@ Prefab:
       propertyPath: m_LocalScale.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 0215cddee2d284e9c9bda1dbe42f829c, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0215cddee2d284e9c9bda1dbe42f829c, type: 2}
   m_RootGameObject: {fileID: 742926016}
@@ -1086,7 +1091,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &742926017
 Transform:
   m_ObjectHideFlags: 0
@@ -2086,12 +2091,12 @@ GameObject:
   - 65: {fileID: 1019359619}
   - 23: {fileID: 1019359618}
   m_Layer: 0
-  m_Name: PlayerDisplay
+  m_Name: PlayerCube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1019359617
 Transform:
   m_ObjectHideFlags: 0
@@ -2563,19 +2568,22 @@ MonoBehaviour:
   ModeSC: {fileID: 654792595}
   Help: {fileID: 1097511745}
   Reset: {fileID: 1948077978}
-  path1: {fileID: 1121364416}
-  path2: {fileID: 1255328088}
-  path3: {fileID: 1605413363}
-  path4: {fileID: 1362801582}
-  path5: {fileID: 2024454870}
-  path6: {fileID: 194998104}
-  path1Ring: {fileID: 955310520}
-  path2Ring: {fileID: 1444439579}
-  path3Ring: {fileID: 1434477350}
-  path4Ring: {fileID: 221805755}
-  path5Ring: {fileID: 1449107936}
-  path6Ring: {fileID: 1407517794}
+  guiPaths:
+  - {fileID: 1121364416}
+  - {fileID: 1255328088}
+  - {fileID: 1605413363}
+  - {fileID: 1362801582}
+  - {fileID: 2024454870}
+  - {fileID: 194998104}
+  guiPathRings:
+  - {fileID: 955310520}
+  - {fileID: 1444439579}
+  - {fileID: 1434477350}
+  - {fileID: 221805755}
+  - {fileID: 1449107936}
+  - {fileID: 1407517794}
   helpScreen: {fileID: 1556924244}
+  camera: {fileID: 1305355263}
   path1on: 1
   path2on: 1
   path3on: 1
@@ -2917,7 +2925,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: .100000001
-  far clip plane: 2000
+  far clip plane: 4000
   field of view: 60
   orthographic: 0
   orthographic size: 5
@@ -2939,7 +2947,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1305355263}
   m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106829}
-  m_LocalPosition: {x: 1083.73926, y: 600, z: 185.919998}
+  m_LocalPosition: {x: 1083.73926, y: 612, z: 344.600006}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 246234290}
@@ -3072,6 +3080,75 @@ GUIText:
     rgba: 4278217972
   m_PixelCorrect: 1
   m_RichText: 1
+--- !u!1 &1377584677
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1377584681}
+  - 33: {fileID: 1377584680}
+  - 135: {fileID: 1377584679}
+  - 23: {fileID: 1377584678}
+  m_Layer: 0
+  m_Name: PlayerSphere
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!23 &1377584678
+Renderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1377584677}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 2100000, guid: 03c1bb433bf4f124994dfd3cc4040da9, type: 2}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+--- !u!135 &1377584679
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1377584677}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: .5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &1377584680
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1377584677}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1377584681
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1377584677}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 980.5, y: -71.2190704, z: 222.599365}
+  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_Children: []
+  m_Father: {fileID: 246234290}
+  m_RootOrder: 21
 --- !u!1 &1407517792
 GameObject:
   m_ObjectHideFlags: 0
@@ -3821,7 +3898,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1556924245
 Transform:
   m_ObjectHideFlags: 0
@@ -4673,6 +4750,7 @@ GameObject:
   - 4: {fileID: 2035443128}
   - 33: {fileID: 2035443130}
   - 23: {fileID: 2035443129}
+  - 64: {fileID: 2035443131}
   m_Layer: 0
   m_Name: lp_terrain:Mesh
   m_TagString: Untagged
@@ -4720,6 +4798,19 @@ MeshFilter:
     type: 3}
   m_PrefabInternal: {fileID: 1613829990}
   m_GameObject: {fileID: 2035443127}
+  m_Mesh: {fileID: 4300002, guid: ebbc6988737de374f93fc744604979a8, type: 3}
+--- !u!64 &2035443131
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2035443127}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_SmoothSphereCollisions: 0
+  m_Convex: 0
   m_Mesh: {fileID: 4300002, guid: ebbc6988737de374f93fc744604979a8, type: 3}
 --- !u!1 &2052163961
 GameObject:
@@ -5146,10 +5237,11 @@ MonoBehaviour:
   sensitivityElevate: .100000001
   camMaxHeight: 1000
   camMinHeight: 50
+  clickDelta: 10
   orbitAround: {fileID: 824799971}
   jstick: {fileID: 742926018}
   camera: {fileID: 1305355267}
-  playerDisplay: {fileID: 1019359616}
+  playerDisplay: {fileID: 1377584677}
 --- !u!114 &2108953010
 MonoBehaviour:
   m_ObjectHideFlags: 0

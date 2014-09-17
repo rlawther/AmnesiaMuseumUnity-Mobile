@@ -153,6 +153,15 @@ public class Visualization : MonoBehaviour {
 			//Shader transDiff = Shader.Find ("Transparent/Diffuse");
 		this.quadList = new Transform[this.targetMetadataParser.output.Count];
 		int i = 0;
+
+		/* Quick hack to get episodes in correct order as they're sometimes in the 
+		 * wrong order in the CSV files*/
+		getChildForEpisode (1);
+		getChildForEpisode (2);
+		if (this.name.StartsWith ("g2")) {
+			getChildForEpisode (3);
+			getChildForEpisode (4);
+		}
 		foreach (MetaDataItem mdi in this.targetMetadataParser.output) {
 			/* Create a new quad for the image */
 			GameObject q;

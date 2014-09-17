@@ -2,7 +2,7 @@
 using System.Collections;
 using Toolbelt;
 
-public class Spin : MonoBehaviour {
+public class TouchControl : MonoBehaviour {
 
 	public string remoteHost;
 	public int remotePort;
@@ -13,6 +13,7 @@ public class Spin : MonoBehaviour {
 	public float sensitivityElevate = 0.1f;
 	public float camMaxHeight;
 	public float camMinHeight;
+	public float clickDelta;
 	private float ang, elevation, radius;
 	public Transform orbitAround;
 	private Vector3 offset;
@@ -38,6 +39,9 @@ public class Spin : MonoBehaviour {
 	private string debug = "";
 	public GameObject playerDisplay;
 	private bool touchStarted = false;
+
+	private Vector2 touchStartPos;
+
 
 	// Use this for initialization
 	void Start () {
@@ -71,12 +75,14 @@ public class Spin : MonoBehaviour {
 		bool tapMove = false;
 		Vector3 tapMovePos = new Vector3(0, 0, 0);
 
+
 		if (Input.touchCount == 1)
 		{
 			Touch touch = Input.GetTouch(0);
 			if (touch.phase == TouchPhase.Began)
 			{
 				touchMoved = false;
+				touchStartPos = touch.position;
 				/*
 				 * We make some "dead zones" near the buttons at the top of the screen and around the joystick
 				 * Touch events cannot start in these regions
@@ -109,7 +115,11 @@ public class Spin : MonoBehaviour {
 					cameraPos -= (touch.deltaPosition.y * moveAmount) * Vector3.forward;
 					camera.transform.position = cameraPos;
 				}
-				touchMoved = true;
+				if (!touchMoved)
+				{
+					if (Vector2.Distance(touchStartPos, touch.position) > clickDelta)
+						touchMoved = true;
+				}
 			}
 			else if (touch.phase == TouchPhase.Ended)
 			{

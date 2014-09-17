@@ -6,12 +6,42 @@ public class Events
  
  	private bool mArtisticMode = true;
  	private GameObject mActiveNarrativeScenario = null;
+	private bool gotParent = false;
+	private GameObject photoParent;
+
+	private GameObject [] paths;
 
 	// Use this for initialization
 	void Start () {
-	
+		paths = new GameObject[6];
 	}
-	
+
+	void findPaths(GameObject parent)
+	{
+		int i = 0;
+		foreach (Transform scenario in parent.transform)
+		{
+			foreach (Transform episode in scenario.transform)
+			{
+				paths[i] = episode.gameObject;
+				i++;
+			}
+		}
+	}
+
+	void togglePathActive(int index)
+	{
+		Debug.Log ("toggling path " + index);
+		if (paths[index].activeSelf)
+		{
+			paths[index].SetActive(false);
+		}
+		else
+		{
+			paths[index].SetActive(true);
+		}
+	}
+
 	/* sets the child at the given index to active, all other children
 	 * to inactive.
 	 * Returns the now active child
@@ -51,7 +81,7 @@ public class Events
 	void Update () {
 	
 		RenderSettingsSetter rss;
-	
+
 		if (Input.GetKey("o"))
 		{
 			if (!mArtisticMode)

@@ -5,9 +5,10 @@ public class GUIScript : MonoBehaviour
 {
 
 	public GUIText ModeMem,ModeSC,Help,Reset;
-	public GUIText path1,path2,path3,path4,path5,path6;
-	public GUITexture path1Ring,path2Ring,path3Ring,path4Ring,path5Ring,path6Ring;
+	public GUIText [] guiPaths;
+	public GUITexture [] guiPathRings;
 	public GameObject helpScreen;
+	public GameObject camera;
 	
 	public bool path1on, path2on, path3on, path4on, path5on, path6on;
 
@@ -17,7 +18,40 @@ public class GUIScript : MonoBehaviour
 	
 	public Font boldFont;
 
+	private Vector3 cameraOriginalPosition;
+	private Quaternion cameraOriginalRotation;
+
 	//private bool helpActive;
+	private bool gotParent = false;
+	private GameObject photoParent;
+	
+	private GameObject [] paths;
+	
+	void findPaths(GameObject parent)
+	{
+		int i = 0;
+		foreach (Transform scenario in parent.transform)
+		{
+			foreach (Transform episode in scenario.transform)
+			{
+				paths[i] = episode.gameObject;
+				i++;
+			}
+		}
+	}
+	
+	void togglePathActive(int index)
+	{
+		Debug.Log ("toggling path " + index);
+		if (paths[index].activeSelf)
+		{
+			paths[index].SetActive(false);
+		}
+		else
+		{
+			paths[index].SetActive(true);
+		}
+	}
 
 	void Start() 
 	{
@@ -32,10 +66,16 @@ public class GUIScript : MonoBehaviour
 		path5on = true;
 		path6on = true;
 		setPathAlphas();
+
+		cameraOriginalPosition = camera.transform.position;
+		cameraOriginalRotation = camera.transform.rotation;
+
+		paths = new GameObject[6];
 	}
 	
 	void setPathAlphas()
 	{
+		/*
 				if (path1on) {
 						setAlpha (path1, 1.0f);
 						setAlphaTex (path1Ring, 0.3f);
@@ -81,6 +121,7 @@ public class GUIScript : MonoBehaviour
 						setAlpha (path6, alpha);
 						setAlphaTex (path6Ring, 0.0f);
 		}
+		*/
 			
 	}
 
@@ -122,43 +163,44 @@ public class GUIScript : MonoBehaviour
 
 	public void buttonPressed(GUIText button)
 	{
-		if (button == ModeMem)
-		{
+		if (button == ModeMem) {
 			Debug.Log ("mem");
-			setAlpha(ModeMem, 1.0f);
-			setAlpha(ModeSC, alpha);
-		} 
-
-		else if (button == ModeSC)
-		{
+			setAlpha (ModeMem, 1.0f);
+			setAlpha (ModeSC, alpha);
+		} else if (button == ModeSC) {
 			Debug.Log ("sc");
-			setAlpha(ModeMem, alpha);
-			setAlpha(ModeSC, 1.0f);
-		} 
-
-		else if (button == Help)
-		{
+			setAlpha (ModeMem, alpha);
+			setAlpha (ModeSC, 1.0f);
+		} else if (button == Help) {
 			//helpActive = !helpActive;
 			//Debug.Log ("help screen " + helpActive);
 			Debug.Log ("help screen ");
-			helpScreen.SetActive(!helpScreen.activeSelf);
-			setAlpha(ModeSC, 1.0f);
-		} 
-
-		else if (button == Reset)
-		{
+			helpScreen.SetActive (!helpScreen.activeSelf);
+			setAlpha (ModeSC, 1.0f);
+		} else if (button == Reset) {
 			//helpActive = !helpActive;
 			//Debug.Log ("help screen " + helpActive);
 			Debug.Log ("reset ");
-			setAlpha(ModeSC, 1.0f);
-
-		} 
-
-
+			setAlpha (ModeSC, 1.0f);
+			camera.transform.position = cameraOriginalPosition;
+			camera.transform.rotation = cameraOriginalRotation;
+		} else 
+		{
+			for (int i = 0; i < 6; i++)
+			{
+				if (button == guiPaths [i]) {
+					togglePathActive(i);
+					setAlphaTex (guiPathRings[i], 0.3f);
+				}
+			}
+		}
+		
+		/*
 		else if (button == path1)
 		{
 			path1on = !path1on;
 			setPathAlphas();
+			togglePathActive(0);
 		}
 		else if (button == path2)
 		{
@@ -185,6 +227,7 @@ public class GUIScript : MonoBehaviour
 			path6on = !path6on;
 			setPathAlphas();
 		}
+		*/
 		
 	}
 
@@ -193,8 +236,14 @@ public class GUIScript : MonoBehaviour
 
 	void Update() 
 	{
-
-
+		if (!gotParent && (Time.time > 1.0))
+		{
+			GameObject photoParent = GameObject.Find ("Photos");
+			findPaths (photoParent);
+			
+			gotParent = true;
+		}
+		
 	}
 	
 }
