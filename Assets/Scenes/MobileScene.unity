@@ -2584,12 +2584,6 @@ MonoBehaviour:
   - {fileID: 1407517794}
   helpScreen: {fileID: 1556924244}
   camera: {fileID: 1305355263}
-  path1on: 1
-  path2on: 1
-  path3on: 1
-  path4on: 1
-  path5on: 1
-  path6on: 1
   alpha: .300000012
   activeColor: {r: 0, g: 0, b: 0, a: 0}
   boldFont: {fileID: 12800000, guid: f81a91a4c5e844ae49346e47928bad55, type: 3}
@@ -5238,6 +5232,8 @@ MonoBehaviour:
   camMaxHeight: 1000
   camMinHeight: 50
   clickDelta: 10
+  doubleClickDelta: 20
+  doubleClickTimeDelta: 2
   orbitAround: {fileID: 824799971}
   jstick: {fileID: 742926018}
   camera: {fileID: 1305355267}

@@ -14,6 +14,8 @@ public class TouchControl : MonoBehaviour {
 	public float camMaxHeight;
 	public float camMinHeight;
 	public float clickDelta;
+	public float doubleClickDelta;
+	public float doubleClickTimeDelta;
 	private float ang, elevation, radius;
 	public Transform orbitAround;
 	private Vector3 offset;
@@ -41,6 +43,8 @@ public class TouchControl : MonoBehaviour {
 	private bool touchStarted = false;
 
 	private Vector2 touchStartPos;
+	private Vector2 lastClickPos;
+	private float lastClickTime;
 
 
 	// Use this for initialization
@@ -126,28 +130,29 @@ public class TouchControl : MonoBehaviour {
 				// this is a click
 				if (touchStarted && !touchMoved)
 				{
-					RaycastHit hitInfo;
-					debug = "x";
-					tapCount++;
-					if (Physics.Raycast(camera.ScreenPointToRay(new Vector3(touch.position.x, touch.position.y, 0)), out hitInfo))
+					/* test for a double click */
+					if ((Vector2.Distance(lastClickPos, touch.position) < doubleClickDelta) &&
+					    ((Time.time - lastClickTime) < doubleClickTimeDelta))
 					{
-						debug = "hit";
-						playerDisplay.transform.position = hitInfo.point;
-						tapMove = true;
-						tapMovePos = hitInfo.point + new Vector3(0, 20, 0);
+						RaycastHit hitInfo;
+						debug = "x";
+						tapCount++;
+						if (Physics.Raycast(camera.ScreenPointToRay(new Vector3(touch.position.x, touch.position.y, 0)), out hitInfo))
+						{
+							debug = "hit";
+							playerDisplay.transform.position = hitInfo.point;
+							tapMove = true;
+							tapMovePos = hitInfo.point + new Vector3(0, 20, 0);
 
+						}
+						else
+						{
+							debug = "miss";
+						}
 					}
-					else
-					{
-						debug = "miss";
-					}
-					/* We can use GUI stuff so probably don't need this */
-					/*
-					Kernys.Bson.BSONObject bsonObj = new Kernys.Bson.BSONObject();
-					bsonObj.Add ("x", touch.position.x);
-					bsonObj.Add ("y", touch.position.y);
-					bsonSender.SendUncompressed(bsonObj);
-					*/
+
+					lastClickTime = Time.time;
+					lastClickPos = touch.position;
 				}
 				touchStarted = false;
 			}
