@@ -23,8 +23,14 @@ public class BSONComms : MonoBehaviour {
 		bsonSender.SendUncompressed (testObj);
 	}
 
+	public void reconnect()
+	{	
+		bsonSender = new BSONSender(remoteHost, remotePort);
+	}
+
 	public void addData(string key, Kernys.Bson.BSONValue value)
 	{
+		Debug.Log ("BSON Comms add msg " + remotePort);
 		bsonObj.Add (key, value);
 		dataAdded = true;
 	}

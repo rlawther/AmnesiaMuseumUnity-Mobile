@@ -58,6 +58,7 @@ public class TCPAsyncSender : ThreadedClass {
 				// Grab messages from queue and send them
 				while (this.messageQueue.Count > 0)
 				{
+					Debug.Log ("async send");
 					byte[] msg = this.messageQueue.Dequeue();
 					
 					clientStream.Write(msg, 0, msg.Length);

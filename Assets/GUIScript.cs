@@ -62,13 +62,13 @@ public class GUIScript : MonoBehaviour
 		{
 			setAlpha (guiPaths[index], alpha);
 			setAlphaTex (guiPathRings[index], 0.0f);
-			bsonComms.addData ("path" + index, 0);
+			bsonComms.addData ("path" + (index + 1), 0);
 		}
 		else
 		{
 			setAlpha (guiPaths[index], 1.0f);
 			setAlphaTex (guiPathRings[index], 0.3f);
-			bsonComms.addData ("path" + index, 1);
+			bsonComms.addData ("path" + (index + 1), 1);
 		}
 	}
 
@@ -129,16 +129,19 @@ public class GUIScript : MonoBehaviour
 			Debug.Log ("mem");
 			setAlpha (ModeMem, 1.0f);
 			setAlpha (ModeSC, alpha);
+
 		} else if (button == ModeSC) {
 			Debug.Log ("sc");
 			setAlpha (ModeMem, alpha);
 			setAlpha (ModeSC, 1.0f);
+
 		} else if (button == Help) {
 			//helpActive = !helpActive;
 			//Debug.Log ("help screen " + helpActive);
 			Debug.Log ("help screen ");
 			helpScreen.SetActive (!helpScreen.activeSelf);
 			setAlpha (ModeSC, 1.0f);
+
 		} else if (button == Reset) {
 			//helpActive = !helpActive;
 			//Debug.Log ("help screen " + helpActive);
@@ -150,6 +153,8 @@ public class GUIScript : MonoBehaviour
 			{
 				setPathActive(i, true);
 			}
+			bsonComms.addData("reset", 1);
+
 		} 
 		else 
 		{

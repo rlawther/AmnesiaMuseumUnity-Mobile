@@ -4732,8 +4732,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ff45c6370bd52459a98912a3ec0d44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  remoteHost: 192.168.1.103
-  remotePort: 5551
   rotateSpeed: 10
   sensitivityMove: 8
   sensitivityRotate: .100000001
@@ -4744,9 +4742,10 @@ MonoBehaviour:
   doubleClickDelta: 20
   doubleClickTimeDelta: 2
   orbitAround: {fileID: 824799971}
-  jstick: {fileID: 742926018}
+  jstick: {fileID: 927487670}
   camera: {fileID: 1305355267}
   playerDisplay: {fileID: 1377584677}
+  stringToEdit: 
 --- !u!114 &2108953010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4764,7 +4763,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2108953007}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bf9be95ae7e074e4885583613c7758d6, type: 3}
   m_Name: 
@@ -4803,8 +4802,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d349dd0a720d6d428d6c65ae5428b23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  remoteHost: localhost
-  remotePort: 3338
+  remoteHost: 10.0.16.20
+  remotePort: 5550
 --- !u!114 &2108953014
 MonoBehaviour:
   m_ObjectHideFlags: 0

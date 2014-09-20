@@ -49,6 +49,7 @@ public class BSONSender {
 		//		Debug.Log (deb);
 			
 		tcpSender.AddMessage(a.ToArray());
+			Debug.Log ("adding message to send");
 			
 	}
 	
