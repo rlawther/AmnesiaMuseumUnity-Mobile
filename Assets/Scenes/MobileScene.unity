@@ -432,7 +432,7 @@ GUITexture:
   m_GameObject: {fileID: 221805753}
   m_Enabled: 1
   m_Texture: {fileID: 2800000, guid: 93067309c6be042538806be159b18532, type: 3}
-  m_Color: {r: .5, g: .5, b: .5, a: .117647059}
+  m_Color: {r: .5, g: .5, b: .5, a: .301960796}
   m_PixelInset:
     serializedVersion: 2
     x: 0
@@ -1609,7 +1609,7 @@ GUITexture:
   m_GameObject: {fileID: 955310518}
   m_Enabled: 1
   m_Texture: {fileID: 2800000, guid: 93067309c6be042538806be159b18532, type: 3}
-  m_Color: {r: .5, g: .5, b: .5, a: .117647059}
+  m_Color: {r: .5, g: .5, b: .5, a: .301960796}
   m_PixelInset:
     serializedVersion: 2
     x: 0
@@ -2877,7 +2877,7 @@ GUITexture:
   m_GameObject: {fileID: 1407517792}
   m_Enabled: 1
   m_Texture: {fileID: 2800000, guid: 93067309c6be042538806be159b18532, type: 3}
-  m_Color: {r: .5, g: .5, b: .5, a: .117647059}
+  m_Color: {r: .5, g: .5, b: .5, a: .301960796}
   m_PixelInset:
     serializedVersion: 2
     x: 0
@@ -3085,7 +3085,7 @@ GUITexture:
   m_GameObject: {fileID: 1434477348}
   m_Enabled: 1
   m_Texture: {fileID: 2800000, guid: 93067309c6be042538806be159b18532, type: 3}
-  m_Color: {r: .5, g: .5, b: .5, a: .117647059}
+  m_Color: {r: .5, g: .5, b: .5, a: .301960796}
   m_PixelInset:
     serializedVersion: 2
     x: 0
@@ -3168,7 +3168,7 @@ GUITexture:
   m_GameObject: {fileID: 1444439577}
   m_Enabled: 1
   m_Texture: {fileID: 2800000, guid: 93067309c6be042538806be159b18532, type: 3}
-  m_Color: {r: .5, g: .5, b: .5, a: .117647059}
+  m_Color: {r: .5, g: .5, b: .5, a: .301960796}
   m_PixelInset:
     serializedVersion: 2
     x: 0
@@ -3285,7 +3285,7 @@ GUITexture:
   m_GameObject: {fileID: 1449107934}
   m_Enabled: 1
   m_Texture: {fileID: 2800000, guid: 93067309c6be042538806be159b18532, type: 3}
-  m_Color: {r: .5, g: .5, b: .5, a: .117647059}
+  m_Color: {r: .5, g: .5, b: .5, a: .301960796}
   m_PixelInset:
     serializedVersion: 2
     x: 0
@@ -4736,7 +4736,7 @@ MonoBehaviour:
   sensitivityMove: 8
   sensitivityRotate: .100000001
   sensitivityElevate: .100000001
-  joystickDeadZone: .0500000007
+  joystickDeadZone: .150000006
   camMaxHeight: 1000
   camMinHeight: 50
   clickDelta: 10
@@ -4746,7 +4746,7 @@ MonoBehaviour:
   jstick: {fileID: 927487670}
   camera: {fileID: 1305355267}
   playerDisplay: {fileID: 1377584677}
-  stringToEdit: 
+  debugMode: 1
 --- !u!114 &2108953010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4805,6 +4805,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   remoteHost: 10.0.16.20
   remotePort: 5550
+  positionListener: 1
+  listenPort: 5560
+  playerDisplay: {fileID: 1377584677}
 --- !u!114 &2108953014
 MonoBehaviour:
   m_ObjectHideFlags: 0

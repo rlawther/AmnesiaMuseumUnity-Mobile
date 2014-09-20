@@ -47,7 +47,8 @@ public class TouchControl : MonoBehaviour {
 
 	private BSONComms bsonComms;
 
-	public string stringToEdit;
+	public bool debugMode;
+	private bool sentJoystickZero;
 
 
 	// Use this for initialization
@@ -71,6 +72,7 @@ public class TouchControl : MonoBehaviour {
 		*/
 
 		bsonComms = GetComponent<BSONComms> ();
+		sentJoystickZero = false;
 
 
 	}
@@ -265,6 +267,13 @@ public class TouchControl : MonoBehaviour {
 
 			bsonComms.addData ("x", jstick.position.x);
 			bsonComms.addData ("y", jstick.position.y);
+			sentJoystickZero = false;
+		}
+		else if (!sentJoystickZero)
+		{			
+			bsonComms.addData ("x", 0.0f);
+			bsonComms.addData ("y", 0.0f);
+			sentJoystickZero = true;
 		}
 		if (tapMove)
 		{
@@ -279,6 +288,10 @@ public class TouchControl : MonoBehaviour {
 	}
 
 	void OnGUI () {
+
+		if (!debugMode)
+			return;
+
 		int ypos = 80;
 		// Make a background box
 		GUI.Box(new Rect(10,ypos,300,260), "Menu");
@@ -290,9 +303,6 @@ public class TouchControl : MonoBehaviour {
 		if(GUI.Button(new Rect(20,ypos + 140,280,100), "RemotePort++")) {
 			bsonComms.remotePort++;
 		}
-
-		GUI.TextField (new Rect (10, ypos + 300, 200, 20), stringToEdit, 25);
-
 
 		ypos = 80;
 		GUI.Box(new Rect(Screen.width - 220, ypos + 10,200,260), "Info");

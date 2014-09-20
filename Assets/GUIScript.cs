@@ -142,7 +142,6 @@ public class GUIScript : MonoBehaviour
 			//Debug.Log ("help screen " + helpActive);
 			Debug.Log ("help screen ");
 			helpScreen.SetActive (!helpScreen.activeSelf);
-			setAlpha (ModeSC, 1.0f);
 
 		} else if (button == Reset) {
 			//helpActive = !helpActive;
