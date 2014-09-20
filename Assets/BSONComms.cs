@@ -41,7 +41,7 @@ public class BSONComms : MonoBehaviour {
 
 	public void reconnect()
 	{	
-		bsonSender = new BSONSender(remoteHost, remotePort);
+		Start ();
 	}
 
 	public void addData(string key, Kernys.Bson.BSONValue value)

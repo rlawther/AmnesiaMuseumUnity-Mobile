@@ -84,7 +84,7 @@ public class TCPAsyncSender : ThreadedClass {
 					// Grab messages from queue and send them
 					while (this.messageQueue.Count > 0)
 					{
-						Debug.Log ("async send");
+						//Debug.Log ("async send");
 						byte[] msg = this.messageQueue.Dequeue();
 						
 						/* FIXME : catch here and retry connect? */
