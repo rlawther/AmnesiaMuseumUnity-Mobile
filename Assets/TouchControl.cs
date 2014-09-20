@@ -9,6 +9,7 @@ public class TouchControl : MonoBehaviour {
 	public float sensitivityMove = 10.0f;
 	public float sensitivityRotate = 0.1f;
 	public float sensitivityElevate = 0.1f;
+	public float joystickDeadZone;
 	public float camMaxHeight;
 	public float camMinHeight;
 	public float clickDelta;
@@ -70,6 +71,7 @@ public class TouchControl : MonoBehaviour {
 		*/
 
 		bsonComms = GetComponent<BSONComms> ();
+
 
 	}
 
@@ -257,7 +259,9 @@ public class TouchControl : MonoBehaviour {
 		//camera.transform.LookAt(orbitAround.position + offset);
 
 		Kernys.Bson.BSONObject bsonObj = new Kernys.Bson.BSONObject();
-		if ((jstick.position.x != 0.0f) || (jstick.position.y != 0.0f)) {
+		if ((jstick.position.x >= joystickDeadZone) || (jstick.position.x <= -1 * joystickDeadZone) ||
+		    (jstick.position.y >= joystickDeadZone) || (jstick.position.y <= -1 * joystickDeadZone))
+		{
 			bsonComms.addData ("x", jstick.position.x);
 			bsonComms.addData ("y", jstick.position.y);
 		}
@@ -293,7 +297,7 @@ public class TouchControl : MonoBehaviour {
 		GUI.Box(new Rect(Screen.width - 220, ypos + 10,200,260), "Info");
 		GUI.Label(new Rect(Screen.width - 200, ypos + 30,280,20), "Host : " + bsonComms.remoteHost);
 		GUI.Label(new Rect(Screen.width - 200, ypos + 60,280,20), "Port : " + bsonComms.remotePort);
-		GUI.Label(new Rect(Screen.width - 200, ypos + 90,280,20), "Cam height : " + camera.transform.position.y);
+		GUI.Label(new Rect(Screen.width - 200, ypos + 90,280,20), "Connected : " + bsonComms.isConnected());
 		GUI.Label(new Rect(Screen.width - 200, ypos + 120,280,20), "Cam angle x: " + camera.transform.rotation.eulerAngles.x);
 		GUI.Label(new Rect(Screen.width - 200, ypos + 150,280,20), "Tap count: " + tapCount);
 		GUI.Label(new Rect(Screen.width - 200, ypos + 180,280,20), "D: " + debug);

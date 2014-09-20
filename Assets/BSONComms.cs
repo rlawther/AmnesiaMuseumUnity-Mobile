@@ -34,6 +34,11 @@ public class BSONComms : MonoBehaviour {
 		bsonObj.Add (key, value);
 		dataAdded = true;
 	}
+
+	public bool isConnected()
+	{
+		return bsonSender.isConnected();
+	}
 	
 	// Update is called once per frame
 	void Update () {

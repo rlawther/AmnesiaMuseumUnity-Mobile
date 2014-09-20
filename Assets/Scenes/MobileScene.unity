@@ -4736,6 +4736,7 @@ MonoBehaviour:
   sensitivityMove: 8
   sensitivityRotate: .100000001
   sensitivityElevate: .100000001
+  joystickDeadZone: .0500000007
   camMaxHeight: 1000
   camMinHeight: 50
   clickDelta: 10

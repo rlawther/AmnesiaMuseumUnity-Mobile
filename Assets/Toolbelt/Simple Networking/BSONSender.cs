@@ -52,6 +52,11 @@ public class BSONSender {
 			Debug.Log ("adding message to send");
 			
 	}
+
+	public bool isConnected()
+	{
+		return tcpSender.isConnected();
+	}
 	
 	private List<byte> intToByteString(int paramInt)
 	{
