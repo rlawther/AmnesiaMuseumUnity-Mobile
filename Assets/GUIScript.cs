@@ -129,12 +129,14 @@ public class GUIScript : MonoBehaviour
 			Debug.Log ("mem");
 			setAlpha (ModeMem, 1.0f);
 			setAlpha (ModeSC, alpha);
+			bsonComms.addData ("button", "amnesiaMode");
 
 		} else if (button == ModeSC) {
 			Debug.Log ("sc");
 			setAlpha (ModeMem, alpha);
 			setAlpha (ModeSC, 1.0f);
-
+			bsonComms.addData ("button", "browserMode");
+			
 		} else if (button == Help) {
 			//helpActive = !helpActive;
 			//Debug.Log ("help screen " + helpActive);

@@ -76,17 +76,21 @@ public class TCPAsyncSender : ThreadedClass {
 			NetworkStream clientStream = tcpClient.GetStream();
 			Socket sock = tcpClient.Client;
 			sock.NoDelay = true;
-			
-			lock (messageLock)
+
+			while (!this.stopRequested)
 			{
-				// Grab messages from queue and send them
-				while (this.messageQueue.Count > 0)
+				lock (messageLock)
 				{
-					Debug.Log ("async send");
-					byte[] msg = this.messageQueue.Dequeue();
-					
-					clientStream.Write(msg, 0, msg.Length);
-					clientStream.Flush();	
+					// Grab messages from queue and send them
+					while (this.messageQueue.Count > 0)
+					{
+						Debug.Log ("async send");
+						byte[] msg = this.messageQueue.Dequeue();
+						
+						/* FIXME : catch here and retry connect? */
+						clientStream.Write(msg, 0, msg.Length);
+						clientStream.Flush();	
+					}
 				}
 			}
 				

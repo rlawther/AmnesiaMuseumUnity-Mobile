@@ -262,6 +262,7 @@ public class TouchControl : MonoBehaviour {
 		if ((jstick.position.x >= joystickDeadZone) || (jstick.position.x <= -1 * joystickDeadZone) ||
 		    (jstick.position.y >= joystickDeadZone) || (jstick.position.y <= -1 * joystickDeadZone))
 		{
+
 			bsonComms.addData ("x", jstick.position.x);
 			bsonComms.addData ("y", jstick.position.y);
 		}
