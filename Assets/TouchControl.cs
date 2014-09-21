@@ -152,7 +152,7 @@ public class TouchControl : MonoBehaviour {
 						if (Physics.Raycast(camera.ScreenPointToRay(new Vector3(touch.position.x, touch.position.y, 0)), out hitInfo))
 						{
 							debug = "hit";
-							playerDisplay.transform.position = hitInfo.point;
+							//playerDisplay.transform.position = hitInfo.point;
 							tapMove = true;
 							tapMovePos = hitInfo.point + new Vector3(0, 20, 0);
 

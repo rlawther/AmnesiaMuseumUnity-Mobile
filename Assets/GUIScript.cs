@@ -154,7 +154,7 @@ public class GUIScript : MonoBehaviour
 			{
 				setPathActive(i, true);
 			}
-			bsonComms.addData("reset", 1);
+			bsonComms.addData("button", "reset");
 
 		} 
 		else 
