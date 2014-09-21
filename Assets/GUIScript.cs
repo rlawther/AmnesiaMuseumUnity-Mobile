@@ -104,6 +104,8 @@ public class GUIScript : MonoBehaviour
 		tex.color = col;
 		
 	}
+	
+	/*
 
 	public void buttonReleased(GUIText button)
 	{
@@ -120,6 +122,7 @@ public class GUIScript : MonoBehaviour
 		}
 
 	}
+	*/
 
 
 
@@ -147,7 +150,6 @@ public class GUIScript : MonoBehaviour
 			//helpActive = !helpActive;
 			//Debug.Log ("help screen " + helpActive);
 			Debug.Log ("reset ");
-			setAlpha (ModeSC, 1.0f);
 			camera.transform.position = cameraOriginalPosition;
 			camera.transform.rotation = cameraOriginalRotation;
 			for (int i = 0; i < 6; i++)
