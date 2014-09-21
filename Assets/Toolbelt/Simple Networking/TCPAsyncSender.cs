@@ -53,51 +53,54 @@ public class TCPAsyncSender : ThreadedClass {
 		Debug.Log ("Attempting connection to " + this.remoteString);
 		//IPEndPoint endPoint = new IPEndPoint(IPAddress.Parse(this.remoteIP), this.remotePort);
 
-		// Will keep running until told to stop
+		state = 0;
+		//Debug.Log ("begin connect");
+		var result = this.tcpClient.BeginConnect(this.remoteIP, this.remotePort, null, null);
+		//Debug.Log ("wait one");
+		var success = result.AsyncWaitHandle.WaitOne(TimeSpan.FromSeconds(5));
+		//Debug.Log ("done wait one");
+			
+		if (!success)
+		{
+			Debug.Log ("Could not connect to " + this.remoteString + ". TCPAsyncListener exiting");
+			this.tcpClient.EndConnect(result);
+			return;
+		}
+		Debug.Log ("success? " + success);
+	
+		// we have connected
+		this.tcpClient.EndConnect(result);
+
+		Debug.Log ("Connected to " + remoteString);
+		
+		NetworkStream clientStream = tcpClient.GetStream();
+		Socket sock = tcpClient.Client;
+		sock.NoDelay = true;
+		
+		state = 1;
+			
 		while (!this.stopRequested)
 		{
-			state = 0;
-			var result = this.tcpClient.BeginConnect(this.remoteIP, this.remotePort, null, null);
-			var success = result.AsyncWaitHandle.WaitOne(TimeSpan.FromSeconds(1));
-		
-			if (!success)
+			//Debug.Log ("waiting for lock");
+			lock (messageLock)
 			{
-				Debug.Log ("Could not connect to " + this.remoteString + ". Retry in 5 seconds");
-				Thread.Sleep(5000);
-				continue;
-			}
-		
-			// we have connected
-			this.tcpClient.EndConnect(result);
-
-			Debug.Log ("Connected to " + remoteString);
-			state = 1;
-			
-			NetworkStream clientStream = tcpClient.GetStream();
-			Socket sock = tcpClient.Client;
-			sock.NoDelay = true;
-
-			while (!this.stopRequested)
-			{
-				lock (messageLock)
+				// Grab messages from queue and send them
+				while (this.messageQueue.Count > 0)
 				{
-					// Grab messages from queue and send them
-					while (this.messageQueue.Count > 0)
-					{
-						//Debug.Log ("async send");
-						byte[] msg = this.messageQueue.Dequeue();
-						
-						/* FIXME : catch here and retry connect? */
-						clientStream.Write(msg, 0, msg.Length);
-						clientStream.Flush();	
-					}
+					//Debug.Log ("async send");
+					byte[] msg = this.messageQueue.Dequeue();
+					
+					/* FIXME : catch here and retry connect? */
+					//Debug.Log ("client write " + sock.Connected);
+					clientStream.Write(msg, 0, msg.Length);
+					clientStream.Flush();	
 				}
 			}
-				
 			Thread.Sleep(16);
 		}
-			
 		Debug.Log ("Stopping connection to " + this.remoteString);
+		
 	}
+			
 }
 }

@@ -20,7 +20,8 @@ public class BSONComms : MonoBehaviour {
 	private Vector3 newPosition;
 	private bool hasNewPosition;
 	
-
+	private float lastReconnectTime = 0;
+	
 	// Use this for initialization
 	void Start () {
 		bsonSender = new BSONSender(remoteHost, remotePort);
@@ -62,6 +63,7 @@ public class BSONComms : MonoBehaviour {
 		
 		if (dataAdded)
 		{
+			//Debug.Log ("sending data");
 			bsonSender.SendUncompressed(bsonObj);
 			bsonObj = new Kernys.Bson.BSONObject();
 			dataAdded = false;
@@ -98,4 +100,26 @@ public class BSONComms : MonoBehaviour {
 		if (hasNewPosition)
 			playerDisplay.transform.position = newPosition;
 	}
+	
+	public void OnGUI()
+	{
+		if ((Time.time - lastReconnectTime) < 5)
+			return;
+			
+		if (!isConnected())
+		{
+			GUI.Box (new Rect (0,Screen.height - 150,250,150), "Messages");
+			GUI.Label (new Rect (0,Screen.height - 130,230,20), 
+			           "Not connected to PC");
+			if (GUI.Button (new Rect (0,Screen.height - 110,230,100), 
+			                "Reconnect"))
+			{
+				lastReconnectTime = Time.time;
+				reconnect();
+			}
+			                
+		}
+		
+	}
+	
 }
